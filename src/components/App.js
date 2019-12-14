@@ -11,9 +11,11 @@ class App extends React.Component {
 
     this.state = {
       spells: [],
-      search: ""
+      search: "",
+      favorites: []
     };
     this.handleSearchSpell = this.handleSearchSpell.bind(this);
+    this.handleFavorite = this.handleFavorite.bind(this);
   }
   componentDidMount() {
     getDataFromServer().then(data => {
@@ -32,19 +34,6 @@ class App extends React.Component {
   }
 
   handleFavorite(id) {
-    // const NewPokemon = this.state.pokemons.map(pokemon => {
-    //   let favorite = pokemon.favorite;
-    //   if (pokemon.id === id) {
-    //     favorite = !favorite;
-    //   }
-    //   return {
-    //     ...pokemon,
-    //     favorite: favorite
-    //   };
-    // });
-    // this.setState({
-    //   pokemons: NewPokemon
-    // });
     console.log(id);
   }
 

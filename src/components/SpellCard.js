@@ -7,6 +7,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
 import { purple } from "@material-ui/core/colors";
 import glassesImage from "../images/glasses-harry-white.png";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 
 const SpellCard = props => {
   const { spell, handleFavorite } = props;
@@ -22,6 +23,9 @@ const SpellCard = props => {
     },
     image: {
       width: 30
+    },
+    favorite: {
+      color: purple[100]
     }
   });
 
@@ -32,13 +36,14 @@ const SpellCard = props => {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
-      <input
+      <FavoriteIcon
+        className={classes.favorite}
         onClick={clickButton}
         type="button"
-        value="&hearts;"
+        value={spell._id}
         name="favorite"
         id="favorite"
-      ></input>
+      ></FavoriteIcon>
       <CardHeader
         avatar={
           <Avatar aria-label="spell" className={classes.avatar}>
