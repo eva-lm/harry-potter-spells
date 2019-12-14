@@ -5,9 +5,12 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
-import { purple } from "@material-ui/core/colors";
+import { purple, red } from "@material-ui/core/colors";
 import glassesImage from "../images/glasses-harry-white.png";
+import CardActions from "@material-ui/core/CardActions";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import ShareIcon from "@material-ui/icons/Share";
+import IconButton from "@material-ui/core/IconButton";
 
 const SpellCard = props => {
   const { spell, handleFavorite } = props;
@@ -25,7 +28,7 @@ const SpellCard = props => {
       width: 30
     },
     favorite: {
-      color: purple[100]
+      color: red[600]
     }
   });
 
@@ -36,14 +39,6 @@ const SpellCard = props => {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
-      <FavoriteIcon
-        className={classes.favorite}
-        onClick={clickButton}
-        type="button"
-        value={spell._id}
-        name="favorite"
-        id="favorite"
-      ></FavoriteIcon>
       <CardHeader
         avatar={
           <Avatar aria-label="spell" className={classes.avatar}>
@@ -71,6 +66,14 @@ const SpellCard = props => {
           {spell.effect}
         </Typography>
       </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon onClick={clickButton} className={classes.favorite} />
+        </IconButton>
+        <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton>
+      </CardActions>
     </Card>
   );
 };

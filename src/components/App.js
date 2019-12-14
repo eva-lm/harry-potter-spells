@@ -3,7 +3,7 @@ import getDataFromServer from "../services/data";
 import SpellList from "./SpellList";
 import Filters from "./Filters";
 
-import Paper from "@material-ui/core/Paper";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 class App extends React.Component {
   constructor(props) {
@@ -46,13 +46,9 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <Paper>
-          <Filters handleSearchSpell={this.handleSearchSpell} search={search} />
-          <SpellList
-            spells={searchSpell}
-            handleFavorite={this.handleFavorite}
-          />
-        </Paper>
+        <CssBaseline />
+        <Filters handleSearchSpell={this.handleSearchSpell} search={search} />
+        <SpellList spells={searchSpell} handleFavorite={this.handleFavorite} />>
       </div>
     );
   }
