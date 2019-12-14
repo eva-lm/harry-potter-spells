@@ -1,6 +1,7 @@
 import React from "react";
 import getDataFromServer from "../services/data";
 import SpellList from "./SpellList";
+import Filters from "./Filters";
 
 import "../stylesheets/App.css";
 //import Button from "@material-ui/core/Button";
@@ -10,7 +11,8 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      spells: []
+      spells: [],
+      search: ""
     };
   }
   componentDidMount() {
@@ -21,10 +23,18 @@ class App extends React.Component {
     });
   }
 
+  handleSearchSpell(ev) {
+    const search = ev.currentTarget.value;
+    console.log(search);
+    // this.setState({
+    //   search: search
+    // });
+  }
   render() {
     const { spells } = this.state;
     return (
       <div className="App">
+        <Filters spells={spells} handleSearchSpell={this.handleSearchSpell} />
         <SpellList spells={spells} />
       </div>
     );
