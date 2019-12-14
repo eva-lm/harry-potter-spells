@@ -14,6 +14,7 @@ class App extends React.Component {
       spells: [],
       search: ""
     };
+    this.handleSearchSpell = this.handleSearchSpell.bind(this);
   }
   componentDidMount() {
     getDataFromServer().then(data => {
@@ -26,16 +27,21 @@ class App extends React.Component {
   handleSearchSpell(ev) {
     const search = ev.currentTarget.value;
     console.log(search);
-    // this.setState({
-    //   search: search
-    // });
+    this.setState({
+      search: search
+    });
   }
   render() {
-    const { spells } = this.state;
+    const { search } = this.state;
+
+    const searchSpell = this.state.spells.filter(spellFilter =>
+      spellFilter.spell.toUpperCase().includes(search.toUpperCase())
+    );
+
     return (
       <div className="App">
-        <Filters spells={spells} handleSearchSpell={this.handleSearchSpell} />
-        <SpellList spells={spells} />
+        <Filters handleSearchSpell={this.handleSearchSpell} search={search} />
+        <SpellList spells={searchSpell} />
       </div>
     );
   }

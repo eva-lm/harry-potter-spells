@@ -1,15 +1,15 @@
 import React from "react";
 
 const Filters = props => {
-  const { spells } = props;
+  const { handleSearchSpell, search } = props;
 
   return (
     <div>
       <label htmlFor="spells">
         <input
-          onChange={props.handleSearchSpell}
+          onChange={handleSearchSpell}
           type="text"
-          // value={props.search}
+          value={search}
           name="spells"
           placeholder="look for a spell..."
         />
