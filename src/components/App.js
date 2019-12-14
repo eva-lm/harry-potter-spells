@@ -30,6 +30,24 @@ class App extends React.Component {
       search: search
     });
   }
+
+  handleFavorite(id) {
+    // const NewPokemon = this.state.pokemons.map(pokemon => {
+    //   let favorite = pokemon.favorite;
+    //   if (pokemon.id === id) {
+    //     favorite = !favorite;
+    //   }
+    //   return {
+    //     ...pokemon,
+    //     favorite: favorite
+    //   };
+    // });
+    // this.setState({
+    //   pokemons: NewPokemon
+    // });
+    console.log(id);
+  }
+
   render() {
     const { search } = this.state;
 
@@ -41,7 +59,10 @@ class App extends React.Component {
       <div className="App">
         <Paper>
           <Filters handleSearchSpell={this.handleSearchSpell} search={search} />
-          <SpellList spells={searchSpell} />
+          <SpellList
+            spells={searchSpell}
+            handleFavorite={this.handleFavorite}
+          />
         </Paper>
       </div>
     );
