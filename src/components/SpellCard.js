@@ -5,7 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
-import { purple, red, yellow } from "@material-ui/core/colors";
+import { red, yellow } from "@material-ui/core/colors";
 import glassesImage from "../images/glasses-harry.png";
 import CardActions from "@material-ui/core/CardActions";
 import FavoriteIcon from "@material-ui/icons/Favorite";

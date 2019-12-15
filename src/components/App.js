@@ -58,12 +58,12 @@ class App extends React.Component {
     return (
       <div className="App">
         <CssBaseline />
+        <Filters handleSearchSpell={this.handleSearchSpell} search={search} />
         {this.state.spells.length <= 0 && (
           <CircularProgress variant="indeterminate"></CircularProgress>
         )}
-        <Filters handleSearchSpell={this.handleSearchSpell} search={search} />
         <SpellList spells={searchSpell} handleFavorite={this.handleFavorite} />
-        <FavoriteSpellList favorites={this.state.favorites} />
+        {/* <FavoriteSpellList favorites={this.state.favorites} /> */}
       </div>
     );
   }

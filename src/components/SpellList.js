@@ -10,18 +10,23 @@ const SpellList = props => {
   const useStyles = makeStyles(theme => ({
     root: {
       width: "100%",
-      maxWidth: 360,
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "space-around",
       backgroundColor: theme.palette.background.paper
+    },
+    list: {
+      width: "20%"
     }
   }));
   const classes = useStyles();
 
   return (
-    <ul className={classes.root}>
-      <List>
+    <ul>
+      <List className={classes.root}>
         {spells.map((spell, index) => {
           return (
-            <ListItem className="spell__item" key={index}>
+            <ListItem className={classes.list} key={index}>
               <SpellCard spell={spell} handleFavorite={handleFavorite} />
             </ListItem>
           );

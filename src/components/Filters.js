@@ -10,6 +10,10 @@ const Filters = props => {
   const { handleSearchSpell, search } = props;
 
   const useStyles = makeStyles(theme => ({
+    root: {
+      display: "flex",
+      alignItems: "center"
+    },
     margin: {
       margin: theme.spacing(1)
     }
@@ -17,8 +21,10 @@ const Filters = props => {
   const classes = useStyles();
 
   return (
-    <FormControl className={classes.margin}>
-      <InputLabel htmlFor="spells"> Spell Finder </InputLabel>
+    <FormControl className={(classes.margin, classes.root)}>
+      <InputLabel className={classes.root} htmlFor="spells">
+        Spell Finder
+      </InputLabel>
       <Input
         onChange={handleSearchSpell}
         type="text"
