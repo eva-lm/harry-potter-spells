@@ -5,11 +5,12 @@ import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
+import TextField from "@material-ui/core/TextField";
+import MenuItem from "@material-ui/core/MenuItem";
 
 const Filters = props => {
   const { handleSearchSpell, search, spellList, getTypeFilter, type } = props;
   const filterTypeSpell = spellList.map(item => item.type);
-  console.log("filtros", filterTypeSpell);
   const filterTypeNoDuplicates = [
     ...new Set(filterTypeSpell.map(item => item))
   ];
@@ -46,11 +47,25 @@ const Filters = props => {
           </InputAdornment>
         }
       />
-      <select onChange={getTypeFilter} value={type}>
-        {filterTypeNoDuplicates.map(item => {
-          return <option value={item}>{item}</option>;
+      <InputLabel className={classes.label} htmlFor="types">
+        Type Filter
+      </InputLabel>
+      <TextField
+        id="types"
+        onChange={getTypeFilter}
+        select
+        label="Select"
+        value={type}
+        helperText="Please select your type"
+      >
+        {filterTypeNoDuplicates.map((item, index) => {
+          return (
+            <MenuItem key={index} value={item}>
+              {item}
+            </MenuItem>
+          );
         })}
-      </select>
+      </TextField>
     </FormControl>
   );
 };

@@ -58,16 +58,19 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.type);
     const { search } = this.state;
     let searchSpell = this.state.spells.filter(spellFilter =>
       spellFilter.spell.toUpperCase().includes(search.toUpperCase())
     );
 
     const typeFilter = this.state.spells.filter(
-      item => item.type === this.state.typetype
+      item => item.type === this.state.type
     );
-    searchSpell = typeFilter.length > 0 ? typeFilter : searchSpell;
+
+    let filteredItems =
+      this.state.type !== ""
+        ? searchSpell.filter(item => item.type === this.state.type)
+        : searchSpell;
 
     return (
       <div className="App">
@@ -82,7 +85,7 @@ class App extends React.Component {
         {this.state.spells.length <= 0 && <Spinner />}
         <FavoriteSpellList favorites={this.state.favorites} />
         <SpellList
-          spells={searchSpell}
+          spells={filteredItems}
           typeFilter={typeFilter}
           handleFavorite={this.handleFavorite}
         />
