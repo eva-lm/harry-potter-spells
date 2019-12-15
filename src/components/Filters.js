@@ -7,9 +7,12 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 
 const Filters = props => {
-  const { handleSearchSpell, search, spellList } = props;
-  const filterTypeSpell = spellList.filter(item => item.type);
-  console.log(filterTypeSpell);
+  const { handleSearchSpell, search, spellList, getTypeFilter, type } = props;
+  const filterTypeSpell = spellList.map(item => item.type);
+  console.log("filtros", filterTypeSpell);
+  const filterTypeNoDuplicates = [
+    ...new Set(filterTypeSpell.map(item => item))
+  ];
 
   const useStyles = makeStyles(theme => ({
     root: {
@@ -43,9 +46,11 @@ const Filters = props => {
           </InputAdornment>
         }
       />
-      {/* <select onChange={getTypeFilter} value="">
-        <option value="Male">Male</option>
-      </select> */}
+      <select onChange={getTypeFilter} value={type}>
+        {filterTypeNoDuplicates.map(item => {
+          return <option value={item}>{item}</option>;
+        })}
+      </select>
     </FormControl>
   );
 };

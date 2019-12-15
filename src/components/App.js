@@ -13,10 +13,12 @@ class App extends React.Component {
     this.state = {
       spells: [],
       search: "",
-      favorites: []
+      favorites: [],
+      type: ""
     };
     this.handleSearchSpell = this.handleSearchSpell.bind(this);
     this.handleFavorite = this.handleFavorite.bind(this);
+    this.getTypeFilter = this.getTypeFilter.bind(this);
   }
   componentDidMount() {
     getDataFromServer().then(data => {
@@ -36,7 +38,6 @@ class App extends React.Component {
 
   handleFavorite(spell) {
     let index = this.state.favorites.indexOf(spell._id);
-    console.log(index);
     if (index !== -1) this.state.favorites.splice(index, 1);
     else {
       this.setState({
@@ -49,12 +50,22 @@ class App extends React.Component {
     this.setState({ isFavoritesShowing: !this.state.isFavoritesShowing });
   }
 
+  getTypeFilter(event) {
+    const type = event.currentTarget.value;
+    this.setState({
+      type: type
+    });
+  }
+
   render() {
+    console.log(this.state.type);
     const { search } = this.state;
     const searchSpell = this.state.spells.filter(spellFilter =>
       spellFilter.spell.toUpperCase().includes(search.toUpperCase())
     );
-    console.log(this.state.favorites);
+
+    const typeFilter = this.state.spells.filter(item => item.type === type);
+
     return (
       <div className="App">
         <CssBaseline />
@@ -62,10 +73,16 @@ class App extends React.Component {
           handleSearchSpell={this.handleSearchSpell}
           search={search}
           spellList={this.state.spells}
+          getTypeFilter={this.getTypeFilter}
+          type={this.state.type}
         />
         {this.state.spells.length <= 0 && <Spinner />}
-        <SpellList spells={searchSpell} handleFavorite={this.handleFavorite} />
-        {/* <FavoriteSpellList favorites={this.state.favorites} /> */}
+        <FavoriteSpellList favorites={this.state.favorites} />
+        <SpellList
+          spells={searchSpell}
+          typeFilter={typeFilter}
+          handleFavorite={this.handleFavorite}
+        />
       </div>
     );
   }

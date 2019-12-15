@@ -16,7 +16,7 @@ const SpellCard = props => {
   const { spell, handleFavorite } = props;
   const useStyles = makeStyles({
     card: {
-      minWidth: 300
+      minWidth: 330
     },
     text: {
       fontSize: 14
