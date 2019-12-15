@@ -4,7 +4,7 @@ import SpellList from "./SpellList";
 import Filters from "./Filters";
 import FavoriteSpellList from "./FavoriteSpellList";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import Spinner from "./Spinner";
 
 class App extends React.Component {
   constructor(props) {
@@ -59,9 +59,7 @@ class App extends React.Component {
       <div className="App">
         <CssBaseline />
         <Filters handleSearchSpell={this.handleSearchSpell} search={search} />
-        {this.state.spells.length <= 0 && (
-          <CircularProgress variant="indeterminate"></CircularProgress>
-        )}
+        {this.state.spells.length <= 0 && <Spinner />}
         <SpellList spells={searchSpell} handleFavorite={this.handleFavorite} />
         {/* <FavoriteSpellList favorites={this.state.favorites} /> */}
       </div>

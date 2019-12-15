@@ -12,17 +12,21 @@ const Filters = props => {
   const useStyles = makeStyles(theme => ({
     root: {
       display: "flex",
-      alignItems: "center"
+      alignItems: "center",
+      padding: "20px"
     },
     margin: {
       margin: theme.spacing(1)
+    },
+    label: {
+      position: "relative"
     }
   }));
   const classes = useStyles();
 
   return (
     <FormControl className={(classes.margin, classes.root)}>
-      <InputLabel className={classes.root} htmlFor="spells">
+      <InputLabel className={classes.label} htmlFor="spells">
         Spell Finder
       </InputLabel>
       <Input
