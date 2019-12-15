@@ -8,7 +8,7 @@ const FavoriteSpellList = props => {
       <ul>
         {favorites.map((item, index) => {
           return (
-            <li>
+            <li key={index}>
               {item.spell}
               {item.type}
             </li>

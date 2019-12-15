@@ -21,7 +21,7 @@ const FavoriteButton = props => {
     <div>
       <Button variant="contained" color="secondary" className={classes.root}>
         <FavoriteIcon className={classes.favorite} />
-        check favorites
+        favorites
       </Button>
     </div>
   );

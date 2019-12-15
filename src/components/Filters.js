@@ -7,6 +7,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
+import Select from "@material-ui/core/Select";
 
 const Filters = props => {
   const { handleSearchSpell, search, spellList, getTypeFilter, type } = props;
@@ -31,42 +32,44 @@ const Filters = props => {
   const classes = useStyles();
 
   return (
-    <FormControl className={(classes.margin, classes.root)}>
-      <InputLabel className={classes.label} htmlFor="spells">
-        Spell Finder
-      </InputLabel>
-      <Input
-        onChange={handleSearchSpell}
-        type="text"
-        value={search}
-        id="spells"
-        placeholder="Write here your spell..."
-        startAdornment={
-          <InputAdornment position="start">
-            <SearchIcon />
-          </InputAdornment>
-        }
-      />
-      <InputLabel className={classes.label} htmlFor="types">
-        Type Filter
-      </InputLabel>
-      <TextField
-        id="types"
-        onChange={getTypeFilter}
-        select
-        label="Select"
-        value={type}
-        helperText="Please select your type"
-      >
-        {filterTypeNoDuplicates.map((item, index) => {
-          return (
-            <MenuItem key={index} value={item}>
-              {item}
-            </MenuItem>
-          );
-        })}
-      </TextField>
-    </FormControl>
+    <div>
+      <FormControl className={(classes.margin, classes.root)}>
+        <InputLabel className={classes.label} htmlFor="spells">
+          Spell Finder
+        </InputLabel>
+        <Input
+          onChange={handleSearchSpell}
+          type="text"
+          value={search}
+          id="spells"
+          placeholder="Write here your spell..."
+          startAdornment={
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          }
+        />
+      </FormControl>
+      <FormControl className={(classes.margin, classes.root)}>
+        <InputLabel className={classes.label} id="type-label">
+          Type Filter
+        </InputLabel>
+        <Select
+          labelId="type-label"
+          id="type-select"
+          onChange={getTypeFilter}
+          value={type}
+        >
+          {filterTypeNoDuplicates.map((item, index) => {
+            return (
+              <MenuItem key={index} value={item}>
+                {item}
+              </MenuItem>
+            );
+          })}
+        </Select>
+      </FormControl>
+    </div>
   );
 };
 

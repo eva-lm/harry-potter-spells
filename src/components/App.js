@@ -44,14 +44,10 @@ class App extends React.Component {
         favorites: [...this.state.favorites, spell]
       });
     }
-  }
-
-  showFavorite() {
-    this.setState({ isFavoritesShowing: !this.state.isFavoritesShowing });
-  }
+  } // work in progress
 
   getTypeFilter(event) {
-    const type = event.currentTarget.value;
+    const type = event.target.value;
     this.setState({
       type: type
     });
