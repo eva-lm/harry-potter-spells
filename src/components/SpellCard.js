@@ -46,29 +46,18 @@ const SpellCard = props => {
           </Avatar>
         }
         title={spell.spell}
+        subheader={spell.type}
       />
       <CardContent>
-        <Typography
-          className={classes.text}
-          color="textSecondary"
-          variant="h5"
-          component="p"
-        >
-          {spell.type}
-        </Typography>
-
-        <Typography
-          className={classes.text}
-          variant="body2"
-          component="p"
-          color="textSecondary"
-        >
-          {spell.effect}
+        <Typography className={classes.text} variant="body2" component="p">
+          {spell.effect.charAt(0).toUpperCase() + spell.effect.slice(1)}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon onClick={clickButton} className={classes.favorite} />
+          <div>
+            <FavoriteIcon onClick={clickButton} className={classes.favorite} />
+          </div>
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />

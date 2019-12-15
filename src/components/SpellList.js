@@ -12,11 +12,12 @@ const SpellList = props => {
       width: "100%",
       display: "flex",
       flexWrap: "wrap",
+      overflow: "hidden",
       justifyContent: "space-around",
       backgroundColor: theme.palette.background.paper
     },
     list: {
-      width: "20%"
+      width: "25%"
     }
   }));
   const classes = useStyles();

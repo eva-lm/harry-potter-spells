@@ -7,7 +7,9 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 
 const Filters = props => {
-  const { handleSearchSpell, search } = props;
+  const { handleSearchSpell, search, spellList } = props;
+  const filterTypeSpell = spellList.filter(item => item.type);
+  console.log(filterTypeSpell);
 
   const useStyles = makeStyles(theme => ({
     root: {
@@ -41,6 +43,9 @@ const Filters = props => {
           </InputAdornment>
         }
       />
+      {/* <select onChange={getTypeFilter} value="">
+        <option value="Male">Male</option>
+      </select> */}
     </FormControl>
   );
 };

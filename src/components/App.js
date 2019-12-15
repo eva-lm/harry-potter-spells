@@ -58,7 +58,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <CssBaseline />
-        <Filters handleSearchSpell={this.handleSearchSpell} search={search} />
+        <Filters
+          handleSearchSpell={this.handleSearchSpell}
+          search={search}
+          spellList={this.state.spells}
+        />
         {this.state.spells.length <= 0 && <Spinner />}
         <SpellList spells={searchSpell} handleFavorite={this.handleFavorite} />
         {/* <FavoriteSpellList favorites={this.state.favorites} /> */}

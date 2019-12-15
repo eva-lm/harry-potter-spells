@@ -5,18 +5,21 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 const Spinner = () => {
   const useStyles = makeStyles(theme => ({
     root: {
-      //   display: "flex",
-      //   justifyContent: "center",
-      //   alignItems: "center"
+      display: "flex",
+      justifyContent: "center",
+      padding: "50px"
+      //   position: "fixed",
+      //   top: 50 + "%",
+      //   left: 50 + "%",
+      //   zIndex: 1
     }
   }));
   const classes = useStyles();
 
   return (
-    <CircularProgress
-      className={classes.root}
-      variant="indeterminate"
-    ></CircularProgress>
+    <div className={classes.root}>
+      <CircularProgress variant="indeterminate"></CircularProgress>
+    </div>
   );
 };
 
