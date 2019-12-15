@@ -2,8 +2,8 @@ import React from "react";
 import getDataFromServer from "../services/data";
 import SpellList from "./SpellList";
 import Filters from "./Filters";
+import FavoriteSpellList from "./FavoriteSpellList";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { makeStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 class App extends React.Component {
@@ -34,54 +34,36 @@ class App extends React.Component {
     });
   }
 
-  handleFavorite(id) {
-    console.log(id);
-    let index = this.state.favorites.indexOf(id);
+  handleFavorite(spell) {
+    let index = this.state.favorites.indexOf(spell._id);
+    console.log(index);
     if (index !== -1) this.state.favorites.splice(index, 1);
     else {
       this.setState({
-        favorites: [...this.state.favorites, id]
+        favorites: [...this.state.favorites, spell]
       });
     }
-    console.log("soy la array de favoritos", this.state.favorites);
+  }
+
+  showFavorite() {
+    this.setState({ isFavoritesShowing: !this.state.isFavoritesShowing });
   }
 
   render() {
-    const useStyles = makeStyles(theme => ({
-      root: {
-        display: "flex",
-        "& > * + *": {
-          marginLeft: theme.spacing(2)
-        }
-      }
-    }));
-    const classes = useStyles();
-    const [progress, setProgress] = React.useState(0);
-
-    React.useEffect(() => {
-      function tick() {
-        // reset when reaching 100%
-        setProgress(oldProgress => (oldProgress >= 100 ? 0 : oldProgress + 1));
-      }
-
-      const timer = setInterval(tick, 20);
-      return () => {
-        clearInterval(timer);
-      };
-    }, []);
     const { search } = this.state;
     const searchSpell = this.state.spells.filter(spellFilter =>
       spellFilter.spell.toUpperCase().includes(search.toUpperCase())
     );
-
+    console.log(this.state.favorites);
     return (
-      <div className={classes.root}>
+      <div className="App">
+        <CssBaseline />
         {this.state.spells.length <= 0 && (
           <CircularProgress variant="indeterminate"></CircularProgress>
         )}
-        <CssBaseline />
         <Filters handleSearchSpell={this.handleSearchSpell} search={search} />
-        <SpellList spells={searchSpell} handleFavorite={this.handleFavorite} />>
+        <SpellList spells={searchSpell} handleFavorite={this.handleFavorite} />
+        <FavoriteSpellList favorites={this.state.favorites} />
       </div>
     );
   }

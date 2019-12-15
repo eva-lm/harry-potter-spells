@@ -33,7 +33,7 @@ const SpellCard = props => {
   });
 
   const clickButton = () => {
-    handleFavorite(spell._id);
+    handleFavorite(spell);
   };
 
   const classes = useStyles();
