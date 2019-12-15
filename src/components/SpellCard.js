@@ -5,8 +5,8 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
-import { purple, red } from "@material-ui/core/colors";
-import glassesImage from "../images/glasses-harry-white.png";
+import { purple, red, yellow } from "@material-ui/core/colors";
+import glassesImage from "../images/glasses-harry.png";
 import CardActions from "@material-ui/core/CardActions";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
@@ -22,7 +22,7 @@ const SpellCard = props => {
       fontSize: 14
     },
     avatar: {
-      backgroundColor: purple[900]
+      backgroundColor: yellow[300]
     },
     image: {
       width: 30
