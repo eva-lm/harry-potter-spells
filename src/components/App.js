@@ -2,7 +2,6 @@ import React from "react";
 import getDataFromServer from "../services/data";
 import SpellList from "./SpellList";
 import Filters from "./Filters";
-
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 class App extends React.Component {
@@ -35,6 +34,14 @@ class App extends React.Component {
 
   handleFavorite(id) {
     console.log(id);
+    let index = this.state.favorites.indexOf(id);
+    if (index !== -1) this.state.favorites.splice(index, 1);
+    else {
+      this.setState({
+        favorites: [...this.state.favorites, id]
+      });
+    }
+    console.log("soy la array de favoritos", this.state.favorites);
   }
 
   render() {
