@@ -5,7 +5,6 @@ import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
-import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 
@@ -14,7 +13,7 @@ const Filters = props => {
   const filterTypeSpell = spellList.map(item => item.type);
   const filterTypeNoDuplicates = [
     ...new Set(filterTypeSpell.map(item => item))
-  ];
+  ]; //elimina los elementos duplicados de un array
 
   const useStyles = makeStyles(theme => ({
     root: {

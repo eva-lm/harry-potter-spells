@@ -2,6 +2,7 @@ import React from "react";
 
 const FavoriteSpellList = props => {
   const { favorites } = props;
+  console.log("props favortes", props);
 
   return (
     <div>
@@ -9,8 +10,9 @@ const FavoriteSpellList = props => {
         {favorites.map((item, index) => {
           return (
             <li key={index}>
-              {item.spell}
-              {item.type}
+              <p>{item.spell}</p>
+              <p>{item.type}</p>
+              <p>{item.effect}</p>
             </li>
           );
         })}

@@ -37,7 +37,8 @@ class App extends React.Component {
   }
 
   handleFavorite(spell) {
-    let index = this.state.favorites.indexOf(spell._id);
+    let index = this.state.favorites.indexOf(spell); //indexOf nos devuelve la posición mediante un nº, en caso de que el item no exista nos devuelve -1.
+    console.log(index);
     if (index !== -1) this.state.favorites.splice(index, 1);
     else {
       this.setState({
@@ -53,7 +54,11 @@ class App extends React.Component {
     });
   }
 
-  render() {
+  render(_id) {
+    console.log("fvoirtes", this.state.favorites);
+    let indexId = this.state.favorites.indexOf(_id);
+    console.log("index id n app", indexId);
+
     const { search } = this.state;
     let searchSpell = this.state.spells.filter(spellFilter =>
       spellFilter.spell.toUpperCase().includes(search.toUpperCase())
@@ -79,7 +84,11 @@ class App extends React.Component {
           type={this.state.type}
         />
         {this.state.spells.length <= 0 && <Spinner />}
-        <FavoriteSpellList favorites={this.state.favorites} />
+        {indexId !== -1 ? (
+          this.state.favorites.splice(indexId, 1)
+        ) : (
+          <FavoriteSpellList favorites={this.state.favorites} />
+        )}
         <SpellList
           spells={filteredItems}
           typeFilter={typeFilter}
