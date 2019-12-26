@@ -6,6 +6,7 @@ import FavoriteSpellList from "./FavoriteSpellList";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Spinner from "./Spinner";
 import FavoriteButton from "./FavoriteButton";
+import { Link, Route, Switch } from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
@@ -81,6 +82,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <CssBaseline />
+        <Link to="/.">Back</Link>
         <Filters
           handleSearchSpell={this.handleSearchSpell}
           search={search}

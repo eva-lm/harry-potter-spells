@@ -1,12 +1,6 @@
 import React from "react";
-// import getDataFromServer from "../services/data";
-// import SpellList from "./SpellList";
-// import Filters from "./Filters";
-// import FavoriteSpellList from "./FavoriteSpellList";
-import CssBaseline from "@material-ui/core/CssBaseline";
-// import Spinner from "./Spinner";
-// import FavoriteButton from "./FavoriteButton";
 import Spells from "./Spells";
+import { Link, Route, Switch } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
 class App extends React.Component {
@@ -26,8 +20,21 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <CssBaseline />
-        <Spells />
+        <header>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/spells">Spells</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <main>
+          <Switch>
+            {/* <Route exact path="/" component={Home} /> */}
+            <Route path="/spells" component={Spells} />
+          </Switch>
+        </main>
       </div>
     );
   }
