@@ -6,7 +6,7 @@ import FavoriteSpellList from "./FavoriteSpellList";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Spinner from "./Spinner";
 import FavoriteButton from "./FavoriteButton";
-import { Link, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {

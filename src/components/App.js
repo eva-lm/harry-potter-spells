@@ -2,6 +2,7 @@ import React from "react";
 import Spells from "./Spells";
 import { Link, Route, Switch } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import Characters from "./Characters";
 
 class App extends React.Component {
   constructor(props) {
@@ -9,27 +10,19 @@ class App extends React.Component {
 
     this.state = {};
   }
-  //   componentDidMount() {
-  //     getDataFromServer().then(data => {
-  //       this.setState({
-  //         spells: data
-  //       });
-  //     });
-  //   }
 
   render() {
     return (
       <div className="App">
         <header>
           <nav>
-            <ul>
-              <li>
-                <Link to="/spells">Spells</Link>
-              </li>
-            </ul>
+            <Button variant="contained" color="primary">
+              <Link to="/spells">Spells</Link>
+            </Button>
           </nav>
         </header>
         <main>
+          <Characters />
           <Switch>
             {/* <Route exact path="/" component={Home} /> */}
             <Route path="/spells" component={Spells} />
