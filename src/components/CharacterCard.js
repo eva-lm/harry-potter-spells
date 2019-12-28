@@ -1,13 +1,68 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardMedia from "@material-ui/core/CardMedia";
+import { red } from "@material-ui/core/colors";
+//import polygon from "../stylesheets/polygon.css";
 
 const CharacterCard = props => {
   const { character } = props;
+  const useStyles = makeStyles(theme => ({
+    card: {
+      maxWidth: 345,
+      shapeOutside: polygon(
+        "32px 126px, 163px 32px, 293px 127px, 244px 282px, 82px 281px"
+      )
+      // position: "relative",
+      // background: "transparent",
+      // width: 150,
+      // borderWidth: "120px 58px 0",
+      // borderStyle: "solid",
+      // borderColor: red,
+      // marginTop: "150px",
+      // before: {
+      //   top: "-230px",
+      //   left: "-58px",
+      //   borderWidth: "0 133px 110px",
+      //   borderStyle: "solid"
+      // }
+    },
 
+    // card:before: {
+
+    // },
+
+    media: {
+      height: "100px",
+      paddingTop: "56.25%" // 16:9
+    }
+
+    // expand: {
+    //   transform: 'rotate(0deg)',
+    //   marginLeft: 'auto',
+    //   transition: theme.transitions.create('transform', {
+    //     duration: theme.transitions.duration.shortest,
+    //   }),
+    // },
+    // expandOpen: {
+    //   transform: 'rotate(180deg)',
+    // },
+    // avatar: {
+    //   backgroundColor: red[500],
+    // },
+  }));
+  const classes = useStyles();
   return (
-    <div>
-      <h2>{character.name}</h2>
-      <h3>{character.house}</h3>
-      <img src={character.image} alt={character.name} />
+    // <div className="polygon">
+    <Card className={classes.card}>
+      <CardHeader title={character.name} subheader={character.house} />
+      <CardMedia
+        className={classes.media}
+        image={character.image}
+        alt={character.name}
+        title="Character photo"
+      />
       <p>{character.dateOfBirth}</p>
       <p>
         {character.ancestry.charAt(0).toUpperCase() +
@@ -52,7 +107,8 @@ const CharacterCard = props => {
             character.hairColour.charAt(0).toUpperCase() +
             character.hairColour.slice(1)}
       </p>
-    </div>
+    </Card>
+    // </div>
   );
 };
 

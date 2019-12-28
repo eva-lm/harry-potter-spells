@@ -19,13 +19,16 @@ class App extends React.Component {
             <Button variant="contained" color="primary">
               <Link to="/spells">Spells</Link>
             </Button>
+            <Button variant="contained" color="primary">
+              <Link to="/characters">Characters</Link>
+            </Button>
           </nav>
         </header>
         <main>
-          <Characters />
           <Switch>
             {/* <Route exact path="/" component={Home} /> */}
             <Route path="/spells" component={Spells} />
+            <Route path="/characters" component={Characters} />
           </Switch>
         </main>
       </div>
