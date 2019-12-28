@@ -1,22 +1,30 @@
 import React from "react";
 import getCharactersFromServer from "../services/dataCharacters";
+import CharacterList from "./CharacterList";
 
 class Characters extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      characters: []
+    };
   }
 
   componentDidMount() {
     getCharactersFromServer().then(data => {
-      console.log("personajeees", data);
+      const pjs = data;
+      this.setState({
+        characters: pjs
+      });
     });
   }
 
   render() {
+    const { characters } = this.state;
+    console.log("soy el estado de la nacion", this.state);
     return (
       <div>
-        <p>soy los characteeersssss</p>
+        <CharacterList characters={characters} />
       </div>
     );
   }
