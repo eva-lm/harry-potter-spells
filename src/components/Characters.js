@@ -7,8 +7,10 @@ class Characters extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      characters: []
+      characters: [],
+      isFaceUp: false
     };
+    this.changeFace = this.changeFace.bind(this);
   }
 
   componentDidMount() {
@@ -20,13 +22,30 @@ class Characters extends React.Component {
     });
   }
 
+  changeFace(index) {
+    const characterIndex = index;
+    console.log("no se lo que hago", characterIndex);
+    if (this.state.isFaceUp === false) {
+      this.setState({
+        isFaceUp: true
+      });
+    } else {
+      this.setState({
+        isFaceUp: false
+      });
+    }
+  }
   render() {
-    const { characters } = this.state;
+    const { characters, isFaceUp } = this.state;
     console.log("soy el estado de la nacion", this.state);
     return (
       <div>
         <Link to="/.">Back</Link>
-        <CharacterList characters={characters} />
+        <CharacterList
+          characters={characters}
+          isFaceUp={isFaceUp}
+          changeFace={this.changeFace}
+        />
       </div>
     );
   }

@@ -1,13 +1,37 @@
-/* .polygon {
-    background-color: #63639c;
-    position: relative;
-    width: 54px;
-    box-sizing: content-box;
-    border-width: 50px 18px 0;
-    border-style: solid;
-    border-color: red transparent;
+.frogUp {
+    background-image: url("../images/frogUp.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    width: 600px;
+        /* position: relative;
+        width: 254px;
+        box-sizing: content-box;
+        border-width: 50px 18px 0;
+        border-style: solid;
+        border-color: red transparent; */
 }
-.polygon::before {
+.frog {
+    background-image: url("../images/frog.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    width: 600px;
+}
+.hidden {
+    height: 600px;
+    width: 600px;
+    display: none;
+}
+/* .polygon::before {
     content: "";
       position: absolute;
       height: 0;
