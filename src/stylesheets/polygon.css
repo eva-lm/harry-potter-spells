@@ -6,8 +6,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 600px;
-    width: 600px;
+    height: 300px;
+    width: 300px;
         /* position: relative;
         width: 254px;
         box-sizing: content-box;
@@ -23,12 +23,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 600px;
-    width: 600px;
+    height: 300px;
+    width: 300px;
 }
 .hidden {
-    height: 600px;
-    width: 600px;
+    height: 300px;
+    width: 300px;
     display: none;
 }
 /* .polygon::before {

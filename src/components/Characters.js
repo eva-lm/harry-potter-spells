@@ -8,9 +8,10 @@ class Characters extends React.Component {
     super(props);
     this.state = {
       characters: [],
-      isFaceUp: false
+      game: [{ name: "", isFaceUp: false }]
     };
-    this.changeFace = this.changeFace.bind(this);
+    this.saveCard = this.saveCard.bind(this);
+    //this.changeFace = this.changeFace.bind(this);
   }
 
   componentDidMount() {
@@ -22,29 +23,38 @@ class Characters extends React.Component {
     });
   }
 
-  changeFace(index) {
-    const characterIndex = index;
-    console.log("no se lo que hago", characterIndex);
-    if (this.state.isFaceUp === false) {
-      this.setState({
-        isFaceUp: true
-      });
-    } else {
-      this.setState({
-        isFaceUp: false
-      });
-    }
+  saveCard(name) {
+    const characterName = name;
+    this.setState({
+      game: [{ ...this.state.game.name, name: characterName }]
+    });
+    //this.changeFace(name);
   }
+
+  // changeFace(name) {
+  //   this.state.selected.forEach(select => {
+  //     if (select) {
+  //       this.state.isFaceUp === false
+  //         ? this.setState({
+  //             isFaceUp: true
+  //           })
+  //         : this.setState({
+  //             isFaceUp: false
+  //           });
+  //     }
+  //   });
+  // }
+
   render() {
-    const { characters, isFaceUp } = this.state;
-    console.log("soy el estado de la nacion", this.state);
+    const { characters, game } = this.state;
+    console.log("soy el estado de la nacion", this.state.game);
     return (
       <div>
         <Link to="/.">Back</Link>
         <CharacterList
           characters={characters}
-          isFaceUp={isFaceUp}
-          changeFace={this.changeFace}
+          game={game}
+          saveCard={this.saveCard}
         />
       </div>
     );

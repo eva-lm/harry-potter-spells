@@ -2,7 +2,7 @@ import React from "react";
 
 const FavoriteSpellList = props => {
   const { favorites } = props;
-  console.log("props favortes", props);
+  //console.log("props favortes", props);
 
   return (
     <div>
