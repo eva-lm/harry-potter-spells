@@ -8,7 +8,7 @@ class Characters extends React.Component {
     super(props);
     this.state = {
       characters: [],
-      game: [{ name: "", isFaceUp: false }]
+      game: []
     };
     this.saveCard = this.saveCard.bind(this);
     //this.changeFace = this.changeFace.bind(this);
@@ -26,7 +26,7 @@ class Characters extends React.Component {
   saveCard(name) {
     const characterName = name;
     this.setState({
-      game: [{ ...this.state.game.name, name: characterName }]
+      game: [...this.state.game, { name: characterName, isFaceUp: true }]
     });
     //this.changeFace(name);
   }

@@ -5,7 +5,7 @@ import { Cat } from "react-kawaii";
 
 const CharacterList = props => {
   const { characters, game, saveCard } = props;
-  // console.log("props List -->", props);
+  console.log("props List -->", props);
   return (
     <Grid container direction="row" justify="space-between" alignItems="center">
       <Cat size={250} mood="blissful" color="#404A5C" />

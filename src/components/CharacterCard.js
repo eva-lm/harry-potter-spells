@@ -7,7 +7,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 
 const CharacterCard = props => {
   const { character, game, saveCard } = props;
-  //console.log("props Card --->", props);
+  console.log("props Card --->", props);
 
   const useStyles = makeStyles(theme => ({
     card: {
