@@ -73,11 +73,15 @@ class App extends React.Component {
     const typeFilter = this.state.spells.filter(
       item => item.type === this.state.type
     );
-
     let filteredItems =
       this.state.type !== ""
         ? searchSpell.filter(item => item.type === this.state.type)
         : searchSpell;
+
+    const [expanded, setExpanded] = React.useState(false);
+    const handleExpandClick = () => {
+      setExpanded(!expanded);
+    };
 
     return (
       <div className="App">

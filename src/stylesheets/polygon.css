@@ -1,5 +1,5 @@
 .frogUp {
-    background-image: url("../images/frogUp.png");
+   /* background-image: url("../images/frogUp.png"); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -10,7 +10,7 @@
     width: 300px;
 }
 .frog {
-    background-image: url("../images/frog.png");
+    /* background-image: url("../images/frog.png"); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

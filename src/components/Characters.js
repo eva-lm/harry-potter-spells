@@ -8,9 +8,15 @@ class Characters extends React.Component {
     super(props);
     this.state = {
       characters: [],
-      game: []
+      charactersDuplicates: [],
+      partOne: [],
+      partTwo: [],
+      isFaceUp: false
     };
+    //document.addEventListener("click", this.comparedCards);
+
     this.saveCard = this.saveCard.bind(this);
+    this.duplicateCard = this.duplicateCard.bind(this);
     //this.changeFace = this.changeFace.bind(this);
   }
 
@@ -18,43 +24,56 @@ class Characters extends React.Component {
     getCharactersFromServer().then(data => {
       const pjs = data;
       this.setState({
-        characters: pjs
+        characters: pjs,
+        charactersDuplicates: pjs
       });
     });
   }
 
   saveCard(name) {
     const characterName = name;
-    this.setState({
-      game: [...this.state.game, { name: characterName, isFaceUp: true }]
+    this.setState(prevState => {
+      return {
+        partOne: prevState.partOne.find(i => i === characterName)
+          ? prevState.partOne.filter(i => i !== characterName)
+          : prevState.partOne.concat(characterName)
+      };
     });
-    //this.changeFace(name);
+    this.comparedCards();
+  }
+  duplicateCard(name) {
+    const characterDuplicateName = name;
+    this.setState(prevState => {
+      return {
+        partTwo: prevState.partTwo.find(i => i === characterDuplicateName)
+          ? prevState.partTwo.filter(i => i !== characterDuplicateName)
+          : prevState.partTwo.concat(characterDuplicateName)
+      };
+    });
+
+    this.comparedCards();
+  }
+  comparedCards() {
+    const filterCard = this.state.partOne.filter(i =>
+      this.state.partTwo.includes(i)
+    );
+    console.log("filtrando", filterCard);
   }
 
-  // changeFace(name) {
-  //   this.state.selected.forEach(select => {
-  //     if (select) {
-  //       this.state.isFaceUp === false
-  //         ? this.setState({
-  //             isFaceUp: true
-  //           })
-  //         : this.setState({
-  //             isFaceUp: false
-  //           });
-  //     }
-  //   });
-  // }
-
   render() {
-    const { characters, game } = this.state;
-    console.log("soy el estado de la nacion", this.state.game);
+    const { characters, partOne, partTwo, charactersDuplicates } = this.state;
+
+    console.log("CHARACTER STATE", this.state.partOne);
+    console.log("CHARACTER STATE1", this.state.partTwo);
+
     return (
       <div>
         <Link to="/.">Back</Link>
         <CharacterList
           characters={characters}
-          game={game}
           saveCard={this.saveCard}
+          charactersDuplicates={charactersDuplicates}
+          duplicateCard={this.duplicateCard}
         />
       </div>
     );
