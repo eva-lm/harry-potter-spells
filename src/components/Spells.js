@@ -6,11 +6,12 @@ import FavoriteSpellList from "./FavoriteSpellList";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Spinner from "./Spinner";
 import FavoriteButton from "./FavoriteButton";
-import { Link } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       spells: [],
@@ -62,7 +63,7 @@ class App extends React.Component {
     });
   }
   exeFavoriteList() {
-    console.log("asda");
+    console.log("click boton fav");
   }
   render() {
     const { search } = this.state;
@@ -78,10 +79,10 @@ class App extends React.Component {
         ? searchSpell.filter(item => item.type === this.state.type)
         : searchSpell;
 
-    const [expanded, setExpanded] = React.useState(false);
-    const handleExpandClick = () => {
-      setExpanded(!expanded);
-    };
+    // const [expanded, setExpanded] = React.useState(false);
+    // const handleExpandClick = () => {
+    //   setExpanded(!expanded);
+    // };
 
     return (
       <div className="App">
@@ -95,13 +96,28 @@ class App extends React.Component {
           type={this.state.type}
         />
         {this.state.spells.length <= 0 && <Spinner />}
-        <FavoriteButton />
-        <FavoriteSpellList favorites={this.state.favorites} />
+        
+            <Link to="/spells/favorites">
+        <FavoriteButton exeFavoriteList={this.exeFavoriteList} />
+        </Link>
+        {/* <FavoriteSpellList favorites={this.state.favorites} /> */}
         <SpellList
           spells={filteredItems}
           typeFilter={typeFilter}
           handleFavorite={this.handleFavorite}
         />
+<div>
+<Switch>
+           <Route path="/spells/favorites" 
+          render = {() => {
+            return (
+              <FavoriteSpellList favorites={this.state.favorites} />
+            )
+          }}
+          /> 
+        </Switch>
+</div>
+
       </div>
     );
   }

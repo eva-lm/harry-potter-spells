@@ -11,6 +11,7 @@ class Characters extends React.Component {
       charactersDuplicates: [],
       partOne: [],
       partTwo: [],
+      match: [],
       isFaceUp: false
     };
     //document.addEventListener("click", this.comparedCards);
@@ -57,6 +58,9 @@ class Characters extends React.Component {
     const filterCard = this.state.partOne.filter(i =>
       this.state.partTwo.includes(i)
     );
+    this.setState({
+      match: filterCard
+    })
     console.log("filtrando", filterCard);
   }
 

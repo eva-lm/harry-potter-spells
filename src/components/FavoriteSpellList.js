@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, Route, Switch } from "react-router-dom";
 
 const FavoriteSpellList = props => {
   const { favorites } = props;
@@ -6,6 +7,8 @@ const FavoriteSpellList = props => {
 
   return (
     <div>
+      <p>HOKICAASDADfsdjvgfkñ-diiii</p>
+      <Link to="/spells">Back</Link>
       <ul>
         {favorites.map((item, index) => {
           return (
