@@ -45,12 +45,11 @@ const SpellCard = props => {
             <img className={classes.image} src={glassesImage} alt="glasses" />
           </Avatar>
         }
-        title={spell.spell}
-        subheader={spell.type}
+        title={spell.hechizo}
       />
       <CardContent>
         <Typography className={classes.text} variant="body2" component="p">
-          {spell.effect.charAt(0).toUpperCase() + spell.effect.slice(1)}
+          {spell.uso}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

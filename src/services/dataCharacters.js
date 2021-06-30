@@ -7,3 +7,5 @@ const getCharactersFromServer = () => {
 };
 
 export default getCharactersFromServer;
+
+

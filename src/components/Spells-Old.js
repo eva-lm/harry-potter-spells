@@ -8,7 +8,7 @@ import Spinner from "./Spinner";
 import FavoriteButton from "./FavoriteButton";
 import { Link, Route, Switch } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-let fav;
+
 class App extends React.Component {
   constructor() {
     super();
@@ -17,13 +17,14 @@ class App extends React.Component {
       spells: [],
       search: "",
       favorites: [],
+      type: ""
     };
     this.handleSearchSpell = this.handleSearchSpell.bind(this);
     this.handleFavorite = this.handleFavorite.bind(this);
+    this.getTypeFilter = this.getTypeFilter.bind(this);
   }
   componentDidMount() {
     getDataFromServer().then(data => {
-      console.log("spells", data)
       this.setState({
         spells: data
       });
@@ -53,68 +54,69 @@ class App extends React.Component {
         favorites: [...this.state.favorites, spell]
       });
     }
-    localStorage.setItem('fav', JSON.stringify(this.state.favorites))
+  } // work in progress
+
+  getTypeFilter(event) {
+    const type = event.target.value;
+    this.setState({
+      type: type
+    });
   }
-
-
+  exeFavoriteList() {
+    console.log("click boton fav");
+  }
   render() {
     const { search } = this.state;
-    const searchSpell = this.state.spells.filter(spell => spell.hechizo.toUpperCase().includes(search.toUpperCase()))
+    let searchSpell = this.state.spells.filter(spellFilter =>
+      spellFilter.spell.toUpperCase().includes(search.toUpperCase())
+    );
 
-    
-    if (typeof(Storage) !== "undefined") {
-      console.log("LocalStorage disponible")
-    } else {
-      console.log("LocalStorage no soportado en este navegador")
-    }
+    const typeFilter = this.state.spells.filter(
+      item => item.type === this.state.type
+    );
+    let filteredItems =
+      this.state.type !== ""
+        ? searchSpell.filter(item => item.type === this.state.type)
+        : searchSpell;
 
-        
-    if (localStorage.getItem('fav') !== null) {
-      fav = JSON.parse(localStorage.getItem('fav'));
-      console.log("save",fav);
-    } else {
-      // Carga los datos
-      localStorage.setItem('fav', JSON.stringify(this.state.favorites))
-    }
+    // const [expanded, setExpanded] = React.useState(false);
+    // const handleExpandClick = () => {
+    //   setExpanded(!expanded);
+    // };
 
     return (
       <div className="App">
         <CssBaseline />
         <Link to="/.">Back</Link>
+        <Filters
+          handleSearchSpell={this.handleSearchSpell}
+          search={search}
+          spellList={this.state.spells}
+          getTypeFilter={this.getTypeFilter}
+          type={this.state.type}
+        />
         {this.state.spells.length <= 0 && <Spinner />}
-
-        <div>
-          <Switch>
-            <Route
-              exact path="/spells"
-              render={
-                () => {
-                  return (
-                    <div>
-                      <Filters
-                        handleSearchSpell={this.handleSearchSpell}
-                        search={search}
-                        spellList={this.state.spells}
-                        getTypeFilter={this.getTypeFilter}
-                      />
-                      <Link to="/spells/favorites">
-                        <FavoriteButton />
-                      </Link>
-                      <SpellList
-                        spells={searchSpell}
-                        handleFavorite={this.handleFavorite}
-                      />
-                    </div>
-                  )
-                }
-              } />
-            <Route path="/spells/favorites"
-              children={
-                <FavoriteSpellList favorites={fav} />
-              }
-            />
-          </Switch>
-        </div>
+        
+            <Link to="/spells/favorites">
+        <FavoriteButton exeFavoriteList={this.exeFavoriteList} />
+        </Link>
+        {/* <FavoriteSpellList favorites={this.state.favorites} /> */}
+        <SpellList
+          spells={filteredItems}
+          typeFilter={typeFilter}
+          handleFavorite={this.handleFavorite}
+        />
+<div>
+<Switch>
+           <Route path="/spells/favorites" 
+          render = {() => {
+            return (
+              <FavoriteSpellList favorites={this.state.favorites} />
+            )
+          }}
+          /> 
+        </Switch>
+</div>
 
       </div>
     );

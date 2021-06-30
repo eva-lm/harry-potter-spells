@@ -10,8 +10,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import IconButton from "@material-ui/core/IconButton";
 
 const CharacterCard = props => {
-  const { character, game, saveCard } = props;
-  //console.log("props Card --->", game.name);
+  const { character, saveCard } = props;
 
   const useStyles = makeStyles(theme => ({
     card: {

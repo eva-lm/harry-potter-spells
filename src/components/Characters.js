@@ -14,11 +14,9 @@ class Characters extends React.Component {
       match: [],
       isFaceUp: false
     };
-    //document.addEventListener("click", this.comparedCards);
 
     this.saveCard = this.saveCard.bind(this);
     this.duplicateCard = this.duplicateCard.bind(this);
-    //this.changeFace = this.changeFace.bind(this);
   }
 
   componentDidMount() {

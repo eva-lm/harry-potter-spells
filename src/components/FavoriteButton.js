@@ -6,7 +6,6 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 //import FavoriteSpellList from "./FavoriteSpellList";
 
 const FavoriteButton = props => {
-  const { exeFavoriteList } = props;
   const useStyles = makeStyles(theme => ({
     root: {
       width: "120px",
@@ -30,7 +29,6 @@ const FavoriteButton = props => {
         variant="contained"
         color="secondary"
         className={classes.root}
-        onClick={exeFavoriteList}
       >
         <FavoriteIcon className={classes.favorite} />
         favorites
