@@ -80,7 +80,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <CssBaseline />
-        <Link to="/.">Back</Link>
+        {/* <Link to="/.">Back</Link> */}
         {this.state.spells.length <= 0 && <Spinner />}
 
         <div>

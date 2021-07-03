@@ -70,7 +70,6 @@ class Characters extends React.Component {
 
     return (
       <div>
-        <Link to="/.">Back</Link>
         <CharacterList
           characters={characters}
           saveCard={this.saveCard}

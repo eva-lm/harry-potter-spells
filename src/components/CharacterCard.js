@@ -8,6 +8,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Collapse from "@material-ui/core/Collapse";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import IconButton from "@material-ui/core/IconButton";
+import "../stylesheets/game.css"
 
 const CharacterCard = props => {
   const { character, saveCard } = props;
@@ -61,6 +62,7 @@ const CharacterCard = props => {
           <ExpandMoreIcon />
         </IconButton>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <div className="character-info">
           <p>{character.dateOfBirth}</p>
           <p>
             {character.ancestry.charAt(0).toUpperCase() +
@@ -72,7 +74,7 @@ const CharacterCard = props => {
               character.species.slice(1)}
           </p>
           {character.wand.length && (
-            <ul>
+            <ul style={{listStyle: "none", padding: "0" }}>
               <p>Wand:</p>
               <li>
                 {character.wand.wood.charAt(0).toUpperCase() +
@@ -110,6 +112,7 @@ const CharacterCard = props => {
                 character.hairColour.charAt(0).toUpperCase() +
                 character.hairColour.slice(1)}
           </p>
+          </div>
         </Collapse>
       </Card>
     </React.Fragment>
