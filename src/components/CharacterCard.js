@@ -16,7 +16,7 @@ const CharacterCard = props => {
   const useStyles = makeStyles(theme => ({
     card: {
       width: 250,
-      marginTop: 40
+      margin: 20
     },
     media: {
       height: 250
@@ -63,55 +63,82 @@ const CharacterCard = props => {
         </IconButton>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <div className="character-info">
+          {character.dateOfBirth === undefined
+          ? ""
+          :
           <p>{character.dateOfBirth}</p>
+          }
+          {character.ancestry === undefined
+          ? ""
+          :
           <p>
             {character.ancestry.charAt(0).toUpperCase() +
               character.ancestry.slice(1)}
           </p>
-
+          }
+          {character.species === undefined
+          ? ""
+          :
           <p>
             {character.species.charAt(0).toUpperCase() +
               character.species.slice(1)}
           </p>
+          }
           {character.wand.length && (
             <ul style={{listStyle: "none", padding: "0" }}>
               <p>Wand:</p>
+              {character.wand.wood === undefined
+              ? ""
+              :
               <li>
                 {character.wand.wood.charAt(0).toUpperCase() +
                   character.wand.wood.slice(1)}
               </li>
+              }
+              {character.wand.core === undefined
+              ? ""
+              :
               <li>
                 {character.wand.core.charAt(0).toUpperCase() +
                   character.wand.core.slice(1)}
               </li>
-              <li>
-                {character.wand.length == 0
+            }
+                {character.wand.length === 0
                   ? ""
-                  : character.wand.length + " cm"}
-              </li>
+                  : 
+                  <li>
+                    {character.wand.length + " cm"}
+                  </li>
+                  }
             </ul>
           )}
-          <p>
-            {character.patronus == 0
+            {character.patronus === undefined
               ? ""
-              : "Patronus: " +
+              :
+              <p>
+              {"Patronus: " +
                 character.patronus.charAt(0).toUpperCase() +
                 character.patronus.slice(1)}
-          </p>
-          <p>
-            {character.eyeColour == 0
+            </p>
+            }
+            {character.eyeColour === undefined
               ? ""
-              : "Eyes: " +
+              :
+              <p>
+                {"Eyes: " +
                 character.eyeColour.charAt(0).toUpperCase() +
                 character.eyeColour.slice(1)}
-          </p>
-          <p>
-            {character.hairColour == 0
+              </p>
+            } 
+            {character.hairColour === undefined
               ? ""
-              : "Hair: " +
+              :
+              <p>
+                {"Hair: " +
                 character.hairColour.charAt(0).toUpperCase() +
                 character.hairColour.slice(1)}
-          </p>
+              </p>
+            }
           </div>
         </Collapse>
       </Card>

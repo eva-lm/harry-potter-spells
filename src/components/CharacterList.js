@@ -1,6 +1,7 @@
 import React from "react";
 import CharacterCard from "./CharacterCard";
 import { makeStyles } from "@material-ui/core/styles";
+import Box from '@material-ui/core/Box';
 import Grid from "@material-ui/core/Grid";
 
 const CharacterList = props => {
@@ -11,10 +12,11 @@ const CharacterList = props => {
   } = props;
   const useStyles = makeStyles(theme => ({
     root: {
-      flexGrow: 1
+     //flexGrow: 1,
+     justifyContent: "center"
     },
     paper: {
-      margin: 80,
+      margin: 40,
       textAlign: "center",
       color: theme.palette.text.secondary
     }
@@ -22,21 +24,21 @@ const CharacterList = props => {
 
   const classes = useStyles();
   return (
-    <div>
-      <Grid container spacing={2} className={classes.root}>
+    <Box>
+      <Grid container className={classes.root}>
         {characters.map((character, index) => {
           return (
-            <Grid item xs={2} item key={index} className={classes.paper}>
+            <div key={index} className={classes.paper}>
               <CharacterCard
                 character={character}
                 game={game}
                 saveCard={saveCard}
               />
-            </Grid>
+            </div>
           );
         })}
       </Grid>
-    </div>
+    </Box>
   );
 };
 

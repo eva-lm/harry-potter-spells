@@ -36,13 +36,6 @@ class App extends React.Component {
             <Route path="/spells" component={Spells} />
             <Route path="/characters" component={Characters} />
             <Route path="/game" component={Game} />
-            {/* <Route path="/spells/favorites"
-              render={() => {
-                return (
-                  <FavoriteSpellList favorites={this.state.favorites} />
-                )
-              }}
-            /> */}
           </Switch>
         </main>
       </div>

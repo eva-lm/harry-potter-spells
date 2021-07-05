@@ -4,6 +4,7 @@ import SpellList from "./SpellList";
 import Filters from "./Filters";
 import FavoriteSpellList from "./FavoriteSpellList";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import Box from '@material-ui/core/Box';
 import Spinner from "./Spinner";
 import FavoriteButton from "./FavoriteButton";
 import { Link, Route, Switch } from "react-router-dom";
@@ -23,12 +24,22 @@ class App extends React.Component {
   }
   componentDidMount() {
     getDataFromServer().then(data => {
-      console.log("spells", data)
+      // console.log("spells", data)
+      // this.setState({
+      //   spells: data
+      // });
+      const setSpells = data.map(i => {
+        return {
+          ... i,
+          favorite : false
+        }
+      })
       this.setState({
-        spells: data
-      });
+        spells: setSpells
+      })
     });
   }
+
 
   handleSearchSpell(ev) {
     const search = ev.currentTarget.value;
@@ -39,6 +50,7 @@ class App extends React.Component {
   }
 
   handleFavorite(spell) {
+    console.log("spel que llega", spell)
     let index = this.state.favorites.indexOf(spell); //indexOf nos devuelve la posición mediante un nº, en caso de que el item no exista nos devuelve -1.
     console.log(index);
     if (index !== -1) {
@@ -53,14 +65,28 @@ class App extends React.Component {
         favorites: [...this.state.favorites, spell]
       });
     }
-    localStorage.setItem('fav', JSON.stringify(this.state.favorites))
+    // localStorage.setItem('fav', JSON.stringify(this.state.favorites))
+    const newSpells = this.state.spells.map(i => {
+      let favoriteItem = i.favorite;
+      if (i.hechizo === spell.hechizo) {
+        favoriteItem = !favoriteItem;
+      };
+      return {
+        ...i,
+        favorite: favoriteItem
+      }
+    });
+    this.setState({
+      spells: newSpells
+    })
   }
 
 
   render() {
+    // console.log("state--->", this.state.spells)
+
     const { search } = this.state;
     const searchSpell = this.state.spells.filter(spell => spell.hechizo.toUpperCase().includes(search.toUpperCase()))
-
     
     if (typeof(Storage) !== "undefined") {
       console.log("LocalStorage disponible")
@@ -69,28 +95,26 @@ class App extends React.Component {
     }
 
         
-    if (localStorage.getItem('fav') !== null) {
-      fav = JSON.parse(localStorage.getItem('fav'));
-      console.log("save",fav);
-    } else {
-      // Carga los datos
-      localStorage.setItem('fav', JSON.stringify(this.state.favorites))
-    }
+    // if (localStorage.getItem('fav') !== null) {
+    //   fav = JSON.parse(localStorage.getItem('fav'));
+    //   console.log("save",fav);
+    // } else {
+    //   // Carga los datos
+    //   localStorage.setItem('fav', JSON.stringify(this.state.favorites))
+    // }
 
     return (
-      <div className="App">
+      <div>
         <CssBaseline />
         {/* <Link to="/.">Back</Link> */}
         {this.state.spells.length <= 0 && <Spinner />}
-
-        <div>
           <Switch>
             <Route
               exact path="/spells"
               render={
                 () => {
                   return (
-                    <div>
+                    <Box>
                       <Filters
                         handleSearchSpell={this.handleSearchSpell}
                         search={search}
@@ -104,18 +128,18 @@ class App extends React.Component {
                         spells={searchSpell}
                         handleFavorite={this.handleFavorite}
                       />
-                    </div>
+                    </Box>
                   )
                 }
               } />
             <Route path="/spells/favorites"
               children={
-                <FavoriteSpellList favorites={fav} />
+                <FavoriteSpellList favorites={this.state.favorites}
+                spells={searchSpell}
+                handleFavorite={this.handleFavorite} />
               }
             />
           </Switch>
-        </div>
-
       </div>
     );
   }

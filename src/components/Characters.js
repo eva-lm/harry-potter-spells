@@ -1,6 +1,7 @@
 import React from "react";
 import getCharactersFromServer from "../services/dataCharacters";
 import CharacterList from "./CharacterList";
+import Spinner from "./Spinner";
 import { Link } from "react-router-dom";
 
 class Characters extends React.Component {
@@ -70,6 +71,7 @@ class Characters extends React.Component {
 
     return (
       <div>
+        {this.state.characters.length <= 0 && <Spinner />}
         <CharacterList
           characters={characters}
           saveCard={this.saveCard}

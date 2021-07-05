@@ -5,13 +5,21 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
-import { yellow } from "@material-ui/core/colors";
+import { red, yellow } from "@material-ui/core/colors";
 import glassesImage from "../images/glasses-harry.png";
-
+import Box from '@material-ui/core/Box';
+import Grid from "@material-ui/core/Grid";
+import CardActions from "@material-ui/core/CardActions";
+import IconButton from "@material-ui/core/IconButton";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import Container from '@material-ui/core/Container';
 import jum from "../images/desaprobacion.png"
 
 
 const FavoriteSpellList = props => {
+  const { handleFavorite } = props;
+
+
   // if (typeof(Storage) !== "undefined") {
   //   console.log("LocalStorage disponible")
   // } else {
@@ -42,34 +50,47 @@ const FavoriteSpellList = props => {
   //   // 
   // }, [favorites]);
 
-
-  console.log("fav-->",props )
+  console.log("PRPS FAV", props)
 
   const useStyles = makeStyles({
+    content: {
+      justifyContent: "center"
+    },
     card: {
-      width: "90%",
-      padding: 20,
-      textAlign: "center"
+      width: 330,
+      margin: 20
     },
     avatar: {
       backgroundColor: yellow[300]
     },
     text: {
-      fontSize: 14
+      fontSize: 16
+    },
+    favorite: {
+      color: red[600]
     },
     image: {
       width: "80%",
       margin: 10
+    },
+    dobby: {
+      maxWidth: 500,
+    },    
+    info: {
+      width: "60%",
+      padding: 20,
+      textAlign: "center",
     }
   })
   const classes = useStyles();
   return (
-    <div style={{ display: "flex", justifyContent: "center", with: "100%", margin: "30px" }}>
-       <ul>
+    <Box style={{ with: "100%", margin: "30px" }}>
+       <Grid container className={classes.content}>
          {props.favorites.length >= 1 ?
         (props.favorites.map((item, index) => {
           return (
-            <Card style={{ margin: "20px" }} key={index}>
+            <div>
+            <Card className={classes.card} key={index}>
               <CardHeader
                 avatar={
                   <Avatar aria-label="spell" className={classes.avatar}>
@@ -82,17 +103,28 @@ const FavoriteSpellList = props => {
                 <Typography className={classes.text} variant="body2" component="p">
                 {item.uso}
                 </Typography>
-              </CardContent>
+              </CardContent>      
+              <CardActions disableSpacing>
+                <IconButton onClick={() => {
+                  handleFavorite(item)
+                }} value={item} aria-label="add to favorites">
+                    <FavoriteIcon className={classes.favorite} />
+                </IconButton>
+              </CardActions>
             </Card>
+            </div>
           );
         }))
         : 
-      (<Card className={classes.card} >
-          <p style={{ fontSize: "18px" }}>You don't have favorites yet ... Study the spells well!</p>
-          <img className={classes.image} src={jum} alt="dobby" />
-        </Card>) }
-      </ul> 
-    </div>
+        (
+          <Container className={classes.info} >
+            <p style={{ fontSize: "22px"}}>You don't have favorites yet ... Study the spells well!</p>
+            <img className={classes.dobby} src={jum} alt="dobby" />
+          </Container>
+          )
+        }
+      </Grid> 
+    </Box>
   );
 };
 
