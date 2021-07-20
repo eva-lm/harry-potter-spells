@@ -3,34 +3,45 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { yellow } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import a from "../images/a.png";
 //import FavoriteSpellList from "./FavoriteSpellList";
 
 const FavoriteButton = props => {
   const useStyles = makeStyles(theme => ({
     root: {
-      width: "120px",
-      height: "40px",
-      marginLeft: "50px"
+      display: "flex",
+      justifyContent: "center",
+      marginTop: 30,
+      paddingTop: 30,
+      paddingBottom: 30,
+      backgroundColor: "#cfcfcf",
+     // backgroundImage: `url(${a})`,
+      backgroundRepeat: "no-repeat",
+      backgroundAttachment: "fixed",
+      backgroundSize: "cover"
     },
-    favorite: {
+    button: {
+      width: "250px",
+      height: "45px"
+    },
+    icon: {
       color: yellow[300],
-      marginRight: "2px"
-    }
+      marginRight: "2px",
+    },
   }));
   // const hoveredStyle = {
   //   cursor: "crosshair"
   // };
   const classes = useStyles();
   return (
-    <div>
+    <div className={classes.root}>
       <Button
         tooltip="Go to favorites"
-        // hoveredStyle={hoveredStyle}
         variant="contained"
         color="secondary"
-        className={classes.root}
+        className={classes.button}
       >
-        <FavoriteIcon className={classes.favorite} />
+        <FavoriteIcon className={classes.icon} />
         favorites
       </Button>
     </div>

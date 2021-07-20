@@ -8,7 +8,7 @@ import SearchIcon from "@material-ui/icons/Search";
 
 
 const Filters = props => {
-  const { handleSearchSpell, search, spellList } = props;
+  const { handleSearchSpell, search } = props;
   // const filterTypeNoDuplicates = [
   //   ...new Set(filterTypeSpell.map(item => item))
   // ]; //elimina los elementos duplicados de un array
@@ -35,9 +35,9 @@ const Filters = props => {
           Spell Finder
         </InputLabel>
         <Input
+          value={search}
           onChange={handleSearchSpell}
           type="text"
-          value={search}
           id="spells"
           placeholder="Write here your spell..."
           startAdornment={

@@ -1,72 +1,52 @@
-import React from "react";
-import getDataFromServer from "../services/data";
+import React, { useEffect, useState } from "react";
+import { fetchService, urlSpells } from "../services/data";
 import SpellList from "./SpellList";
 import Filters from "./Filters";
 import FavoriteSpellList from "./FavoriteSpellList";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Box from '@material-ui/core/Box';
 import Spinner from "./Spinner";
 import FavoriteButton from "./FavoriteButton";
 import { Link, Route, Switch } from "react-router-dom";
-import Button from "@material-ui/core/Button";
-let fav;
-class App extends React.Component {
-  constructor() {
-    super();
+import Box from '@material-ui/core/Box';
+import Typography from "@material-ui/core/Typography";
 
-    this.state = {
-      spells: [],
-      search: "",
-      favorites: [],
-    };
-    this.handleSearchSpell = this.handleSearchSpell.bind(this);
-    this.handleFavorite = this.handleFavorite.bind(this);
-  }
-  componentDidMount() {
-    getDataFromServer().then(data => {
-      // console.log("spells", data)
-      // this.setState({
-      //   spells: data
-      // });
-      const setSpells = data.map(i => {
+
+
+//bugs: busqueda texto al borrar no se actualiza
+//local
+
+
+export const Spells = () => {
+
+  const [spells, setSpells] = useState([]);
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    getInitialSpells()
+  }, [])
+
+  const getInitialSpells = () => {
+    fetchService(urlSpells).then(data => {
+      const setSpellsAddFav = data.map(i => {
         return {
           ... i,
           favorite : false
         }
       })
-      this.setState({
-        spells: setSpells
-      })
+      setSpells(setSpellsAddFav)
     });
   }
-
-
-  handleSearchSpell(ev) {
-    const search = ev.currentTarget.value;
-    console.log(search);
-    this.setState({
-      search: search
-    });
+  const handleSearchSpell = function(ev) {
+    setSearch(ev.currentTarget.value);
   }
+  useEffect(() => {
+    const searchSpell = spells.filter(spell => 
+      spell.hechizo.toUpperCase().includes(search.toUpperCase()));
+      setSpells(searchSpell)
+  }, [search]);
 
-  handleFavorite(spell) {
-    console.log("spel que llega", spell)
-    let index = this.state.favorites.indexOf(spell); //indexOf nos devuelve la posición mediante un nº, en caso de que el item no exista nos devuelve -1.
-    console.log(index);
-    if (index !== -1) {
-      this.setState(prevState => ({
-        favorites: [
-          ...prevState.favorites.slice(0, index),
-          ...prevState.favorites.slice(index + 1)
-        ]
-      }));
-    } else {
-      this.setState({
-        favorites: [...this.state.favorites, spell]
-      });
-    }
-    // localStorage.setItem('fav', JSON.stringify(this.state.favorites))
-    const newSpells = this.state.spells.map(i => {
+  const handleFavorite = (spell) => {
+    const newSpells = spells.map(i => {
       let favoriteItem = i.favorite;
       if (i.hechizo === spell.hechizo) {
         favoriteItem = !favoriteItem;
@@ -76,73 +56,173 @@ class App extends React.Component {
         favorite: favoriteItem
       }
     });
-    this.setState({
-      spells: newSpells
-    })
+    setSpells(newSpells)
   }
-
-
-  render() {
-    // console.log("state--->", this.state.spells)
-
-    const { search } = this.state;
-    const searchSpell = this.state.spells.filter(spell => spell.hechizo.toUpperCase().includes(search.toUpperCase()))
-    
-    if (typeof(Storage) !== "undefined") {
-      console.log("LocalStorage disponible")
-    } else {
-      console.log("LocalStorage no soportado en este navegador")
-    }
-
-        
-    // if (localStorage.getItem('fav') !== null) {
-    //   fav = JSON.parse(localStorage.getItem('fav'));
-    //   console.log("save",fav);
-    // } else {
-    //   // Carga los datos
-    //   localStorage.setItem('fav', JSON.stringify(this.state.favorites))
-    // }
-
     return (
       <div>
         <CssBaseline />
-        {/* <Link to="/.">Back</Link> */}
-        {this.state.spells.length <= 0 && <Spinner />}
-          <Switch>
-            <Route
-              exact path="/spells"
-              render={
-                () => {
-                  return (
-                    <Box>
-                      <Filters
-                        handleSearchSpell={this.handleSearchSpell}
-                        search={search}
-                        spellList={this.state.spells}
-                        getTypeFilter={this.getTypeFilter}
-                      />
-                      <Link to="/spells/favorites">
-                        <FavoriteButton />
-                      </Link>
-                      <SpellList
-                        spells={searchSpell}
-                        handleFavorite={this.handleFavorite}
-                      />
-                    </Box>
-                  )
-                }
-              } />
-            <Route path="/spells/favorites"
-              children={
-                <FavoriteSpellList favorites={this.state.favorites}
-                spells={searchSpell}
-                handleFavorite={this.handleFavorite} />
-              }
-            />
-          </Switch>
-      </div>
+      <Switch>
+      <Route
+      exact path="/spells"
+      render={
+      () => {
+      return (
+      <Box>
+        <Typography style={{ fontSize: "28px", textAlign: "center", marginTop: "30px", marginBottom: "30px" }} variant="h2" color="primary">
+          Spells List
+        </Typography>
+        <Link to="/spells/favorites" style={{ textDecoration: "none" }}>
+          <FavoriteButton />
+      </Link>
+      <Filters
+        handleSearchSpell={handleSearchSpell}
+        search={search}
+      />
+      {spells.length <= 0 && <Spinner />} 
+          <SpellList
+            spells={spells}
+            handleFavorite={handleFavorite}
+          />
+      </Box>
+        )
+      }
+      } />
+    <Route path="/spells/favorites"
+      children={
+        <FavoriteSpellList favorites={spells.filter(i => i.favorite === true)}
+        handleFavorite={handleFavorite} />
+      }
+    />
+  </Switch>
+  </div>
     );
   }
-}
 
-export default App;
+
+
+
+
+
+// import React from "react";
+// import getDataFromServer from "../services/data";
+// import SpellList from "./SpellList";
+// import Filters from "./Filters";
+// import FavoriteSpellList from "./FavoriteSpellList";
+// import CssBaseline from "@material-ui/core/CssBaseline";
+// import Box from '@material-ui/core/Box';
+// import Spinner from "./Spinner";
+// import FavoriteButton from "./FavoriteButton";
+// import { Link, Route, Switch } from "react-router-dom";
+// import Typography from "@material-ui/core/Typography";
+
+
+// let favoritesSpells;
+// class Spells extends React.Component {
+//   constructor() {
+//     super();
+
+//     this.state = {
+//       spells: [],
+//       search: "",
+//       local: []
+//     };
+//     this.handleSearchSpell = this.handleSearchSpell.bind(this);
+//     this.handleFavorite = this.handleFavorite.bind(this);
+//   }
+//   componentDidMount() {
+//     getDataFromServer().then(data => {
+//       const setSpells = data.map(i => {
+//         return {
+//           ... i,
+//           favorite : false
+//         }
+//       })
+//       this.setState({
+//         spells: setSpells
+//       })
+//     });
+//   }
+
+
+//   handleSearchSpell(ev) {
+//     const search = ev.currentTarget.value;
+//     console.log(search);
+//     this.setState({
+//       search: search
+//     });
+//   }
+
+//   handleFavorite(spell) {
+//     const newSpells = this.state.spells.map(i => {
+//       let favoriteItem = i.favorite;
+//       if (i.hechizo === spell.hechizo) {
+//         favoriteItem = !favoriteItem;
+//       };
+//       return {
+//         ...i,
+//         favorite: favoriteItem
+//       }
+//     });
+//     this.setState({
+//       spells: newSpells,
+//     })
+
+//   }
+//   render() {    
+//     const { search } = this.state;
+//     const searchSpell = this.state.spells.filter(spell => spell.hechizo.toUpperCase().includes(search.toUpperCase()))
+//     favoritesSpells = this.state.spells.filter(i => i.favorite === true)
+
+    
+//     // if (typeof(Storage) !== "undefined") {
+//     //   console.log("LocalStorage disponible")
+//     // } else {
+//     //   console.log("LocalStorage no soportado en este navegador")
+//     // }
+//     localStorage.setItem('favorites', JSON.stringify(favoritesSpells));
+//     const localStorageFavorites = JSON.parse(localStorage.getItem('favorites'));
+//     console.log("local state", localStorageFavorites)
+//     return (
+//       <div>
+//         <CssBaseline />
+//           <Switch>
+//             <Route
+//               exact path="/spells"
+//               render={
+//                 () => {
+//                   return (
+//                     <Box>
+//                       <Typography style={{ fontSize: "28px", textAlign: "center", marginTop: "30px", marginBottom: "30px" }} variant="h2" color="primary">
+//                         Spells List
+//                       </Typography>
+//                       {/* <Link to="/spells/favorites" style={{ textDecoration: "none" }}>
+//                         <FavoriteButton />
+//                       </Link> */}
+//                       <Filters
+//                         handleSearchSpell={this.handleSearchSpell}
+//                         search={search}
+//                         spellList={this.state.spells}
+//                         getTypeFilter={this.getTypeFilter}
+//                       />
+//                       {this.state.spells.length <= 0 && <Spinner />}
+//                       <SpellList
+//                         spells={searchSpell}
+//                         handleFavorite={this.handleFavorite}
+//                       />
+//                     </Box>
+//                   )
+//                 }
+//               } />
+//             <Route path="/spells/favorites"
+//               children={
+//                 <FavoriteSpellList favorites={favoritesSpells}
+//                 handleFavorite={this.handleFavorite} />
+//               }
+//             />
+//           </Switch>
+//       </div>
+//     );
+//   }
+// }
+
+// export default Spells;

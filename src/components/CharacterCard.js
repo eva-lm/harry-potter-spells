@@ -8,6 +8,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Collapse from "@material-ui/core/Collapse";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
 import "../stylesheets/game.css"
 
 const CharacterCard = props => {
@@ -27,6 +28,12 @@ const CharacterCard = props => {
       transition: theme.transitions.create("transform", {
         duration: theme.transitions.duration.shortest
       })
+    },
+    wrap: {
+      backgroundColor: "#cfcfcf",
+      display: "flex",
+      flexDirection: "column",
+      padding: 10,
     },
     expandOpen: {
       transform: "rotate(180deg)"
@@ -62,7 +69,8 @@ const CharacterCard = props => {
           <ExpandMoreIcon />
         </IconButton>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <div className="character-info">
+          <div className={classes.wrap}>
+          <Typography variant="body2" component="p">
           {character.dateOfBirth === undefined
           ? ""
           :
@@ -139,6 +147,7 @@ const CharacterCard = props => {
                 character.hairColour.slice(1)}
               </p>
             }
+            </Typography>
           </div>
         </Collapse>
       </Card>

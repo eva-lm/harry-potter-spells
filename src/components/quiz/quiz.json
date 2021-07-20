@@ -1,0 +1,164 @@
+
+    [
+    {
+        "question": "1- Estoy en el gran Comedor y hay un montón de comida... ¿Qué platos elijo",
+        "id": "1",
+           "res": [
+                {
+                    "option": "Sapos de menta y Varitas de regaliz",
+                    "hause": "ravenclaw"
+                } ,
+                {
+                    "option": "Ratones de azúcar chillones y Diablillos de pimienta",
+                    "hause": "slytherin"
+                },
+                {
+                    "option": "Puré de calabaza y Tritones de jengibre",
+                    "hause": "gryffindor"
+                } ,
+                {
+                    "option": "Babosas de gelatina y Caramelos de café con leche",
+                    "hause": "hufflepuff"
+                },
+                {
+                    "option": "Dejaros de tonterías, a mi dame una cerveza de mantequilla de esas!",
+                    "hause": "muggle"
+                } 
+            ]
+        
+    }, 
+
+    {
+        "question": "2- Nos han elegido a mi mejor amigo/a y a mí para el equipo de Quidditch. Pero justo el día antes del partido el capitán del equipo nos dice que solo podrá jugar uno y que el otro se queda en el banquillo. ¿Qué decides?",
+        "id": "2",
+        "res": [
+            {
+                "option": "Está claro que yo juego mejor, en seguida reacciono diciendo que debo salir yo o perderemos el partido",
+                "hause": "slytherin"
+            },
+             {
+                "option": "¿Perdona? Pero que me estás contando... ¡O jugamos los dos o ninguno!",
+                "hause": "gryffindor"
+            } ,
+            {
+                "option": "Los echamos a suertes e intento trucar la moneda con un conjuro, para eso estudio magia :)",
+                "hause": "ravenclaw"
+            } ,
+            {
+                "option": "Me ofrezco para quedarme en el banquillo, al fin y al cabo se que a mi amigo/a le hace muchísima ilusión jugar...",
+                "hause": "hufflepuff"
+            },
+            {
+                "option": "Me había apuntado al deporte este para saltarme las clases y resulta que jugamos los fines de semana, por mi que vaya mi amigo/a",
+                "hause": "muggle"
+            } 
+        ]
+    }, 
+
+    {
+        "question": "3- Estás en clase de pociones, el profesor Snape premiará hoy a quién haga la mejor poción de la clase. Lo das todo, pero ves que hay un compañero que está cortando un ingrediente equivocado...",
+        "id": "3",
+        "res": [
+            {
+                "option": "Te acercas a él y le das una pista sutil, si ha antendido lo suficiente en clase lo pillará y no cometerá el error.",
+                "hause": "ravenclaw"
+            } ,           
+            {
+                "option": "Le aviso antes de que lo eche en el caldero, al fin y al cabo yo me siento seguro/a con mi poción y no quiero fastidiar a los demás.",
+                "hause": "gryffindor"
+            } ,
+            {
+                "option": "Te ries mientras piensas 'que pringaó' y sigues a lo tuyo.",
+                "hause": "slytherin"
+            },
+            {
+                "option": "Le dices que lo está haciendo mal mientras le ofreces un ingrediente tuyo, al rato te das cuenta de que tu poción está peor y que realmente no le has ayudado.",
+                "hause": "hufflepuff"
+            },
+            {
+                "option": "Le felicitas por su poción, pues no ves diferencia con el resto.",
+                "hause": "muggle"
+            } 
+        ]
+    },
+    {
+        "question": "4- ¡Hoy toca excursión a Hogsmeade! Pero, se te ha olvidado traer la autrización... Ves que McGonagall va uno por uno pidiéndola... ¿Qué haces?",
+        "id": "4",
+        "res": [
+            {
+                "option": "Tiro un motón de cohetes y entre tanto caos aprovecho para escaparme. Ya les espero allí con una cerveza de mantequilla :)",
+                "hause": "gryffindor"
+            } ,
+            {
+                "option": "¡Ni de broma me quedo sin ir! Falsificaré una tan exacta que ni McGonagall notará la diferencia.",
+                "hause": "ravenclaw"
+            } ,
+            {
+                "option": "Le quito la autorización a otro/a y cambio el nombre, cero drama.",
+                "hause": "slytherin"
+            },
+            {
+                "option": "Estaría bien decir la verdad a ver si la profesora McGonagall tiene un poco de comprensión y me deja ir... (Te quedas cual pardillo/a en castillo).",
+                "hause": "hufflepuff"
+            },
+            {
+                "option": "Te da exactamente lo mismo porque te has quedado dormido/a, demasiada juerga ayer...",
+                "hause": "muggle"
+            } 
+        ]
+    },
+    {
+        "question": "5- Estás en los exteriores del castillo y ves que hay tres alumnos de cuarto metiendose con uno de primero.",
+        "id": "5",
+        "res": [
+            {
+                "option": "Te acercas a ver si le conoces para echarle un cable.",
+                "hause": "hufflepuff"
+            },
+            {
+                "option": "Pasas del tema, al fin y al cabo es como una clase práctica de defensa contra las artes oscuras, le vendrá bien.",
+                "hause": "slytherin"
+            },
+            {
+                "option": "Es tu momento de lucirte, en el fondo te un poco igual la situación pero quieres demostrar a los demás quien manda. Aprovechas que todos miran y te enfrentas a ellos.",
+                "hause": "gryffindor"
+            } ,
+            {
+                "option": "Ves que es un alumno de primero que te cae fatal... ¿Cómo admiten a gente así de inutil en Hogwarts? Esperas un rato, pero te da pena y acabas defendiendole. De todos modos, los otros alumnos que se meten con él son igual de inútiles",
+                "hause": "ravenclaw"
+            } ,
+            {
+                "option": "Ni te das cuenta de la situación hasta que un hechizo mal lanzado choca contra tí y acabas inconscente en el suelo.",
+                "hause": "muggle"
+            } 
+        ]
+    },
+    {
+        "question": "6- Son los examenes del T.I.M.O. (Título Indispensable de Magia Ordinaria), la presión es muy alta. Ves una oportundad de oro para copiar...",
+        "id": "6",
+        "res": [
+            {
+                "option": "Intentas copiar pero te pones nervioso y desistes.",
+                "hause": "hufflepuff"
+            },
+            {
+                "option": "No tengo necesidad, de todos modos voy a sacar mejor nota que el resto.",
+                "hause": "ravenclaw"
+            } ,
+
+            {
+                "option": "Copias y aún así suspendes, ahora entiendes porque se llaman T.I.M.O.",
+                "hause": "muggle"
+            },
+            {
+                "option": "Las oportunidades hay que aprovecharlas, obvio que copio.",
+                "hause": "gryffindor"
+            } ,
+
+            {
+                "option": "Llevo copiando todos los exámenes, no hay diferencia.",
+                "hause": "slytherin"
+            }
+        ]
+    }
+    ]
