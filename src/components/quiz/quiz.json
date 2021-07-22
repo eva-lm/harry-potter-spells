@@ -2,7 +2,7 @@
     [
     {
         "question": "1- Estoy en el gran Comedor y hay un montón de comida... ¿Qué platos elijo",
-        "id": "1",
+        "id": "0",
            "res": [
                 {
                     "option": "Sapos de menta y Varitas de regaliz",
@@ -30,7 +30,7 @@
 
     {
         "question": "2- Nos han elegido a mi mejor amigo/a y a mí para el equipo de Quidditch. Pero justo el día antes del partido el capitán del equipo nos dice que solo podrá jugar uno y que el otro se queda en el banquillo. ¿Qué decides?",
-        "id": "2",
+        "id": "1",
         "res": [
             {
                 "option": "Está claro que yo juego mejor, en seguida reacciono diciendo que debo salir yo o perderemos el partido",
@@ -57,7 +57,7 @@
 
     {
         "question": "3- Estás en clase de pociones, el profesor Snape premiará hoy a quién haga la mejor poción de la clase. Lo das todo, pero ves que hay un compañero que está cortando un ingrediente equivocado...",
-        "id": "3",
+        "id": "2",
         "res": [
             {
                 "option": "Te acercas a él y le das una pista sutil, si ha antendido lo suficiente en clase lo pillará y no cometerá el error.",
@@ -83,7 +83,7 @@
     },
     {
         "question": "4- ¡Hoy toca excursión a Hogsmeade! Pero, se te ha olvidado traer la autrización... Ves que McGonagall va uno por uno pidiéndola... ¿Qué haces?",
-        "id": "4",
+        "id": "3",
         "res": [
             {
                 "option": "Tiro un motón de cohetes y entre tanto caos aprovecho para escaparme. Ya les espero allí con una cerveza de mantequilla :)",
@@ -94,22 +94,22 @@
                 "hause": "ravenclaw"
             } ,
             {
+                "option": "Te da exactamente lo mismo porque te has quedado dormido/a, demasiada juerga ayer...",
+                "hause": "muggle"
+            } ,
+            {
                 "option": "Le quito la autorización a otro/a y cambio el nombre, cero drama.",
                 "hause": "slytherin"
             },
             {
                 "option": "Estaría bien decir la verdad a ver si la profesora McGonagall tiene un poco de comprensión y me deja ir... (Te quedas cual pardillo/a en castillo).",
                 "hause": "hufflepuff"
-            },
-            {
-                "option": "Te da exactamente lo mismo porque te has quedado dormido/a, demasiada juerga ayer...",
-                "hause": "muggle"
-            } 
+            }
         ]
     },
     {
         "question": "5- Estás en los exteriores del castillo y ves que hay tres alumnos de cuarto metiendose con uno de primero.",
-        "id": "5",
+        "id": "4",
         "res": [
             {
                 "option": "Te acercas a ver si le conoces para echarle un cable.",
@@ -135,7 +135,7 @@
     },
     {
         "question": "6- Son los examenes del T.I.M.O. (Título Indispensable de Magia Ordinaria), la presión es muy alta. Ves una oportundad de oro para copiar...",
-        "id": "6",
+        "id": "5",
         "res": [
             {
                 "option": "Intentas copiar pero te pones nervioso y desistes.",

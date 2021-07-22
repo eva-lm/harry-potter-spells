@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Gryffindor from "../images/houses/gryffindor.jpg"
-import Ravenclaw from "../images/houses/ravenclaw.jpg"
-import Hufflepuff from "../images/houses/hufflepuff.jpg"
-import Slytherin from "../images/houses/slytherin.jpg"
-import Muggle from "../images/houses/muggle.jpg"
+import GryffindorImg from "../images/houses/gryffindor.jpg"
+import RavenclawImg from "../images/houses/ravenclaw.jpg"
+import HufflepuffImg from "../images/houses/hufflepuff.jpg"
+import SlytherinImg from "../images/houses/slytherin.jpg"
+import MuggleImg from "../images/houses/muggle.jpg"
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from "@material-ui/core/Typography";
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -17,7 +18,7 @@ import quiz from "../components/quiz/quiz.json"
 
 
 export const Game = () => {
-const [currentPage, setCurrentPage] = useState(1);
+const [currentPage, setCurrentPage] = useState(0);
 const [value, setValue] = useState('');
 const [house, setHouse] = useState('');
 const [error, setError] = useState(false);
@@ -28,6 +29,7 @@ const [hufflepuff, setHufflepuff] = useState(0);
 const [slytherin, setSlytherin] = useState(0);
 const [muggle, setMuggle] = useState(0);
 const [hidden, setHidden] = useState(true);
+const [loading, setLoading] = useState(false)
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -41,6 +43,9 @@ const useStyles = makeStyles((theme) => ({
   },
   show: {
     display: "block",
+  },
+  title: {
+    textTransform: "toUpperCase"
   }
 }));
 const classes = useStyles();
@@ -54,10 +59,14 @@ const handleRadioChange = (event) => {
 
 const handleSubmit = (event) => {
   event.preventDefault();
-  if (value === event.target.name) {
-    setHelperText('Respuesta guardada');
+  console.log("quiz[currentPage].id", quiz[currentPage].id)
+  console.log("lengoh", quiz.length)
+  
+  
+  if (value === event.target.name && value !== "") {
+    console.log("value", value,  "y", event.target.name)
+    setHelperText('Elige sabiamente');
     setError(false);
-
     if (house === "gryffindor") {
       setGryffindor(gryffindor +1);
     } else if (house === "slytherin") {
@@ -69,39 +78,41 @@ const handleSubmit = (event) => {
     } else if (house === "muggle") {
       setMuggle(muggle +1)
     }
+    if (currentPage <= quiz.length-2) {
+      setCurrentPage(Number(event.target.id) +1)
+    }
+    if (currentPage ===  quiz.length-1) {
+      showResults()
+    }
   } 
  else {
     setHelperText('Por favor, seleccione una respuesta');
     setError(true);
   }
-  setCurrentPage(Number(event.target.id) +1)
-  if (currentPage ===  quiz.length) {
-    showResults()
-  }
+  setValue("")
 };
 
 const showResults = () => {
+  setHidden(false)
   setTimeout(function(){
-    setHidden(false)
+setLoading(true)
     }, 2000)
   }
-  // console.log("quoz", quiz)
+    const biggerNumber = Math.max(gryffindor, slytherin, ravenclaw, hufflepuff, muggle);
 
-    // console.log("gryffindor", gryffindor);
-    // console.log("slytherin", slytherin);
-    // console.log("ravenclaw", ravenclaw);
-    // console.log("hufflepuff", hufflepuff);
-    // console.log("muggle", muggle)
 return (
-  <>{quiz.map(i => {
-    return (
-      <form onSubmit={handleSubmit} className={currentPage === parseInt(i.id) ? classes.show : classes.hidden} id={parseInt(i.id)} name={value} value={house}>
-         <FormControl component="fieldset" error={error} className={classes.formControl}>
-    <FormLabel component="legend">{i.question}</FormLabel>
+  <>
+  <Typography style={{ fontSize: "28px", textAlign: "center", marginTop: "30px", marginBottom: "30px" }} variant="h2" color="primary">
+     ¿Cuál es tu casa?
+  </Typography>
+{quiz[currentPage].id !== undefined && quiz.length ?
+ (<form onSubmit={handleSubmit} name={value} id={parseInt(quiz[currentPage].id)} className={hidden === false ? classes.hidden : classes.show}>
+        <FormControl component="fieldset" error={error} className={classes.formControl}>
+    <FormLabel component="legend">{quiz[currentPage].question}</FormLabel>
     <FormHelperText>{helperText}</FormHelperText>
-      {i.res.map(item => {
+      {quiz[currentPage].res.map((item, index) => {
         return (
-          <RadioGroup aria-label="quiz" name="quiz" value={value} name={item.hause}  onChange={handleRadioChange}>
+          <RadioGroup aria-label="quiz" name="quiz" value={value} onChange={handleRadioChange} key={index}>
           <FormControlLabel value={item.option} name={item.hause} control={<Radio />} label={item.option} /> 
           </RadioGroup>
         )
@@ -111,44 +122,29 @@ return (
       Guardar Respuesta
     </Button>
     </FormControl>
-    </form>
-    )
-  })}
+  </form>) : ""
+}
+
       <div className={hidden === true ? classes.hidden : classes.show}>
-<p>Gryffindor: {gryffindor}</p>
-<p>Slytherin: {slytherin}</p>
-<p>Ravenclaw: {ravenclaw}</p>
-<p>Hufflepuff: {hufflepuff}</p>
-<p>Muggle: {muggle}</p>
+
+<h2>El sombrero está decidiendo que....... </h2>
+{loading ?
+  (
+    <>
+  <h3 className={classes.title}>{biggerNumber === gryffindor ? "Perteneces a GRYFFINDOR!!!" : biggerNumber === slytherin ? "Perteneces a SLYTHERIN" : biggerNumber === ravenclaw ? "Perteneces a RAVENCLAW" : biggerNumber === hufflepuff ? "Perteneces a HUFFLEPUFF" : biggerNumber === muggle ? "Eres un muggle!!" : ""}!!!!</h3>
+  <img src={biggerNumber === gryffindor ? GryffindorImg : biggerNumber === slytherin ? SlytherinImg : biggerNumber === ravenclaw ? RavenclawImg : biggerNumber === hufflepuff ? HufflepuffImg : biggerNumber === muggle ? MuggleImg : ""} alt="" />
+  <p>Afinidad con el resto de casas:</p>
+    <p>Gryffindor: {gryffindor}%</p>
+    <p>Slytherin: {slytherin}%</p>
+    <p>Ravenclaw: {ravenclaw}%</p>
+    <p>Hufflepuff: {hufflepuff}%</p>
+    <p>Muggle: {muggle}%</p>
+    </>
+)
+ : ""}
+
     </div>
 </>
 )
 }
 
-
-// <button onClick={generateYourHouse}>
-//   CASA!
-// </button>
- 
-// <img src={} alt={`tu casa de Hogwarts es${}`} />
-// function generateYourHouse() {
-//   const randonNumber = Math.random() * 10;
-//   const clearNumber = randonNumber.toFixed(0);
-//     setNumber(clearNumber)
-//   }
-//   // if (number <= 2) {
-//   //   <p>Gryffindor!</p>     
-//   //   <img src={Gryffindor} alt="tu casa de Hogwarts" />
-//   // } else if (number > 1 && number < 5) {
-//   //   <p>Ravenclaw!</p>     
-//   //   <img src={Ravenclaw} alt="tu casa de Hogwarts" />
-//   // } else if (number > 3 && number < 7) {
-//   //   <p>Hufflepuff!</p>     
-//   //   <img src={Hufflepuff} alt="tu casa de Hogwarts" />
-//   // } else if (number > 5 && number < 9) {
-//   //   <p>Slytherin!</p>     
-//   //   <img src={Slytherin} alt="tu casa de Hogwarts" />
-//   // } else if (number > 7 && number < 11) {
-//   //   <p>oh no, eres un muggle!</p>     
-//   //   <img src={Muggle} alt="tu casa de Hogwarts" />
-//   // }
