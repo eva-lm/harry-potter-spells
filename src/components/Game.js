@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import GryffindorImg from "../images/houses/gryffindor.jpg"
 import RavenclawImg from "../images/houses/ravenclaw.jpg"
 import HufflepuffImg from "../images/houses/hufflepuff.jpg"
 import SlytherinImg from "../images/houses/slytherin.jpg"
 import MuggleImg from "../images/houses/muggle.jpg"
+import sombreroImg from "../images/sombrero.png";
 import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 import Typography from "@material-ui/core/Typography";
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -19,6 +21,7 @@ import quiz from "../components/quiz/quiz.json"
 
 export const Game = () => {
 const [currentPage, setCurrentPage] = useState(0);
+const [goQuiz, setGoQuiz] = useState(false);
 const [value, setValue] = useState('');
 const [house, setHouse] = useState('');
 const [error, setError] = useState(false);
@@ -46,6 +49,25 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     textTransform: "toUpperCase"
+  },
+  hatButton: {
+   // width: "250px",
+   margin: theme.spacing(1, 1, 0, 0),
+  },
+  box: {
+    textAlign: "center", 
+    padding: "50px 0",
+    width: "80%"
+  },
+  question: {
+    width: "60%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+   marginTop: "50px"
+  },
+  icon : {
+    width: "200px"
   }
 }));
 const classes = useStyles();
@@ -95,18 +117,41 @@ const handleSubmit = (event) => {
 const showResults = () => {
   setHidden(false)
   setTimeout(function(){
-setLoading(true)
+    setLoading(true)
     }, 2000)
   }
     const biggerNumber = Math.max(gryffindor, slytherin, ravenclaw, hufflepuff, muggle);
 
 return (
   <>
-  <Typography style={{ fontSize: "28px", textAlign: "center", marginTop: "30px", marginBottom: "30px" }} variant="h2" color="primary">
-     ¿Cuál es tu casa?
+  {goQuiz === false ?
+  (
+  <Container className={classes.box}>
+  <Typography variant="h1" component="h2" style={{ fontSize: "28px", marginTop: "30px", marginBottom: "30px", color: "#827717", margin: "50px"}} variant="h2">Bienvenidos a <strong>La Ceremonia de Selección</strong>, el evento más importante del año donde podrás saber a qué casa de Hogwarts perteneces. </Typography>
+  <Typography color="primary" style={{ fontSize: "18px", margin: "50px" }} >Cuando estés listo/a pincha sobre el Sombrero Seleccionador. Su decisión se considera generalmente indiscutible, aunque también puede ser influenciada en parte por los deseos del usuario. Responde con total sinceridad :)
   </Typography>
-{quiz[currentPage].id !== undefined && quiz.length ?
- (<form onSubmit={handleSubmit} name={value} id={parseInt(quiz[currentPage].id)} className={hidden === false ? classes.hidden : classes.show}>
+    <Button         
+          tooltip="Go to quiz"
+          variant="contained"
+          color="secondary"
+          className={classes.hatButton}
+          onClick={()=> {
+            setGoQuiz(true)}}
+      >
+    <img className={classes.icon} src={sombreroImg} alt="sombrero seleccionador" />
+  <p>Sombrero</p>  
+    </Button>  
+  </Container>
+  ) : ""}
+
+{quiz[currentPage].id !== undefined && quiz.length && goQuiz ?
+  (
+  <>
+  <Typography style={{ fontSize: "28px", textAlign: "center", marginTop: "30px", marginBottom: "30px" }} variant="h2" color="primary">
+    ¿Cuál es tu casa?
+  </Typography>
+  <Container className={classes.question}>
+  <form onSubmit={handleSubmit} name={value} id={parseInt(quiz[currentPage].id)} className={hidden === false ? classes.hidden : classes.show}>
         <FormControl component="fieldset" error={error} className={classes.formControl}>
     <FormLabel component="legend">{quiz[currentPage].question}</FormLabel>
     <FormHelperText>{helperText}</FormHelperText>
@@ -117,28 +162,42 @@ return (
           </RadioGroup>
         )
       })}
-
     <Button type="submit" variant="outlined" color="primary" className={classes.button}>
       Guardar Respuesta
     </Button>
     </FormControl>
-  </form>) : ""
+  </form>
+  </Container>
+  </>
+  ) : ""
 }
 
-      <div className={hidden === true ? classes.hidden : classes.show}>
-
-<h2>El sombrero está decidiendo que....... </h2>
-{loading ?
+<div className={hidden === true ? classes.hidden : classes.show}>
+    <h2>El sombrero está decidiendo que....... </h2>
+  {loading ?
   (
     <>
-  <h3 className={classes.title}>{biggerNumber === gryffindor ? "Perteneces a GRYFFINDOR!!!" : biggerNumber === slytherin ? "Perteneces a SLYTHERIN" : biggerNumber === ravenclaw ? "Perteneces a RAVENCLAW" : biggerNumber === hufflepuff ? "Perteneces a HUFFLEPUFF" : biggerNumber === muggle ? "Eres un muggle!!" : ""}!!!!</h3>
-  <img src={biggerNumber === gryffindor ? GryffindorImg : biggerNumber === slytherin ? SlytherinImg : biggerNumber === ravenclaw ? RavenclawImg : biggerNumber === hufflepuff ? HufflepuffImg : biggerNumber === muggle ? MuggleImg : ""} alt="" />
-  <p>Afinidad con el resto de casas:</p>
-    <p>Gryffindor: {gryffindor}%</p>
-    <p>Slytherin: {slytherin}%</p>
-    <p>Ravenclaw: {ravenclaw}%</p>
-    <p>Hufflepuff: {hufflepuff}%</p>
-    <p>Muggle: {muggle}%</p>
+  <h3 className={classes.title}>
+    {biggerNumber === gryffindor ? "Perteneces a GRYFFINDOR!!!" : biggerNumber === slytherin ? "Perteneces a SLYTHERIN" : biggerNumber === ravenclaw ? "Perteneces a RAVENCLAW" : biggerNumber === hufflepuff ? "Perteneces a HUFFLEPUFF" : biggerNumber === muggle ? "Eres un muggle!!" : ""}!!!!
+  </h3>
+    <img src={biggerNumber === gryffindor ? GryffindorImg : biggerNumber === slytherin ? SlytherinImg : biggerNumber === ravenclaw ? RavenclawImg : biggerNumber === hufflepuff ? HufflepuffImg : biggerNumber === muggle ? MuggleImg : ""} alt="" />
+      <h4>Afinidad con el resto de casas:</h4>
+        <p>Gryffindor: {gryffindor}%</p>
+        <p>Slytherin: {slytherin}%</p>
+        <p>Ravenclaw: {ravenclaw}%</p>
+        <p>Hufflepuff: {hufflepuff}%</p>
+        <p>Muggle: {muggle}%</p>
+          <Button onClick={()=> {
+            setHidden(true);
+            setCurrentPage(0);
+            setGryffindor(0);
+            setSlytherin(0);
+            setRavenclaw(0);
+            setHufflepuff(0);
+            setMuggle(0);
+            setLoading(false);
+            setGoQuiz(false)
+          }}>Repetir Test</Button>
     </>
 )
  : ""}
