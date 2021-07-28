@@ -52,10 +52,10 @@ function useStickyState(key) {
   const useStyles = makeStyles({
     content: {
       justifyContent: "center",
-      backgroundImage: `url(${a})`,
-      backgroundRepeat: "no-repeat",
-      backgroundAttachment: "fixed",
-      backgroundSize: "cover"
+      // backgroundImage: `url(${a})`,
+      // backgroundRepeat: "no-repeat",
+      // backgroundAttachment: "fixed",
+      // backgroundSize: "cover"
     },
     card: {
       width: 330,
@@ -91,7 +91,7 @@ function useStickyState(key) {
 
   
   return (
-    <Box style={{ with: "100%", margin: "30px" }}>
+    <Box style={{ with: "100%", margin: "30px", marginTop: "150px" }}>
        <div>
          {favorites.length >= 1 ?
         (

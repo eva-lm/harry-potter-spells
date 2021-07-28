@@ -67,7 +67,7 @@ export const Spells = () => {
       render={
       () => {
       return (
-      <Box>
+      <Box style={{ marginTop: "200px"}}>
         <Typography style={{ fontSize: "28px", textAlign: "center", marginTop: "30px", marginBottom: "30px" }} variant="h2" color="primary">
           Spells List
         </Typography>

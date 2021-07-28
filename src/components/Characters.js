@@ -70,7 +70,7 @@ class Characters extends React.Component {
     console.log("CHARACTER STATE1", this.state.partTwo);
 
     return (
-      <div>
+      <div style={{ marginTop: "150px"}}>
         {this.state.characters.length <= 0 && <Spinner />}
         <CharacterList
           characters={characters}

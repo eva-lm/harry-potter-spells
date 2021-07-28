@@ -14,11 +14,13 @@ const FavoriteButton = props => {
       marginTop: 30,
       paddingTop: 30,
       paddingBottom: 30,
-      backgroundColor: "#cfcfcf",
-     // backgroundImage: `url(${a})`,
-      backgroundRepeat: "no-repeat",
-      backgroundAttachment: "fixed",
-      backgroundSize: "cover"
+      borderTop: "0.8px solid #cfcfcf",
+      borderBottom: "0.8px solid #cfcfcf",
+    //   backgroundColor: "#cfcfcf",
+    //  // backgroundImage: `url(${a})`,
+    //   backgroundRepeat: "no-repeat",
+    //   backgroundAttachment: "fixed",
+    //   backgroundSize: "cover"
     },
     button: {
       width: "250px",

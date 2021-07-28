@@ -51,20 +51,27 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "toUpperCase"
   },
   hatButton: {
-   // width: "250px",
    margin: theme.spacing(1, 1, 0, 0),
+   backgroundColor: "transparent",
+   width: "50%"
+  },
+  hatContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
   },
   box: {
-    textAlign: "center", 
     padding: "50px 0",
+    marginTop: "150px",
     width: "80%"
   },
   question: {
     width: "60%",
+    marginTop: "150px",
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
-   marginTop: "50px"
+    alignItems: "center"
   },
   icon : {
     width: "200px"
@@ -127,30 +134,30 @@ return (
   {goQuiz === false ?
   (
   <Container className={classes.box}>
-  <Typography variant="h1" component="h2" style={{ fontSize: "28px", marginTop: "30px", marginBottom: "30px", color: "#827717", margin: "50px"}} variant="h2">Bienvenidos a <strong>La Ceremonia de Selección</strong>, el evento más importante del año donde podrás saber a qué casa de Hogwarts perteneces. </Typography>
-  <Typography color="primary" style={{ fontSize: "18px", margin: "50px" }} >Cuando estés listo/a pincha sobre el Sombrero Seleccionador. Su decisión se considera generalmente indiscutible, aunque también puede ser influenciada en parte por los deseos del usuario. Responde con total sinceridad :)
-  </Typography>
+  <Typography variant="h1" component="h2" color="primary" style={{ fontSize: "28px", marginTop: "30px", marginBottom: "30px", textAlign: "center", margin: "50px"}} variant="h2">¡Ceremonia de Selección!</Typography>
+  <Container className={classes.hatContainer}>
     <Button         
           tooltip="Go to quiz"
           variant="contained"
-          color="secondary"
           className={classes.hatButton}
           onClick={()=> {
             setGoQuiz(true)}}
       >
     <img className={classes.icon} src={sombreroImg} alt="sombrero seleccionador" />
-  <p>Sombrero</p>  
     </Button>  
+    <Typography style={{ fontSize: "15px", margin: "50px" }} >Bienvenidos a <strong>La Ceremonia de Selección</strong>, el evento más importante del año donde podrás saber a qué casa de Hogwarts perteneces. Cuando estés listo/a pincha sobre el Sombrero Seleccionador. Su decisión se considera generalmente indiscutible, aunque también puede ser influenciada en parte por los deseos del usuario. Responde con total sinceridad :)
+  </Typography>
+  </Container>
   </Container>
   ) : ""}
 
 {quiz[currentPage].id !== undefined && quiz.length && goQuiz ?
   (
   <>
+  <Container className={classes.question}>
   <Typography style={{ fontSize: "28px", textAlign: "center", marginTop: "30px", marginBottom: "30px" }} variant="h2" color="primary">
     ¿Cuál es tu casa?
   </Typography>
-  <Container className={classes.question}>
   <form onSubmit={handleSubmit} name={value} id={parseInt(quiz[currentPage].id)} className={hidden === false ? classes.hidden : classes.show}>
         <FormControl component="fieldset" error={error} className={classes.formControl}>
     <FormLabel component="legend">{quiz[currentPage].question}</FormLabel>
