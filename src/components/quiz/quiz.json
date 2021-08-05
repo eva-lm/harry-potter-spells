@@ -21,10 +21,382 @@
                     "hause": "hufflepuff"
                 },
                 {
-                    "option": "Dejaros de tonterías, a mi dame una cerveza de mantequilla de esas!",
+                    "option": "Dejaros de tonterías. ¡A mí dame una cerveza de mantequilla de esas!",
                     "hause": "muggle"
                 } 
             ]
         
+    },
+
+
+    {
+        "question": "2- Nos han elegido a mi mejor amigo/a y a mí para el equipo de Quidditch. Pero justo el día antes del partido el capitán del equipo nos dice que solo podrá jugar uno y que el otro se queda en el banquillo. ¿Qué decides?",
+        "id": "1",
+        "res": [
+            {
+                "option": "Está claro que yo juego mejor, en seguida digo que debo salir yo o perderemos el partido.",
+                "hause": "slytherin"
+            },
+             {
+                "option": "¿Perdona? Pero que me estás contando... ¡O jugamos los dos o ninguno!",
+                "hause": "gryffindor"
+            } ,
+            {
+                "option": "Los echamos a suertes e intento trucar la moneda con un conjuro, para eso estudio magia :)",
+                "hause": "ravenclaw"
+            } ,
+            {
+                "option": "Me ofrezco para quedarme en el banquillo, al fin y al cabo se que a mi amigo/a le hace muchísima ilusión jugar...",
+                "hause": "hufflepuff"
+            },
+            {
+                "option": "Me había apuntado al deporte este para saltarme las clases y resulta que jugamos los fines de semana, por mi que vaya mi amigo/a.",
+                "hause": "muggle"
+            } 
+        ]
+    }, 
+
+    {
+        "question": "3- Estás en clase de pociones, el profesor Snape premiará hoy a quién haga la mejor poción de la clase. Lo das todo, pero ves que hay un compañero que está cortando un ingrediente equivocado...",
+        "id": "2",
+        "res": [
+            {
+                "option": "Te acercas a él y le das una pista sutil, si ha antendido lo suficiente en clase lo pillará y no cometerá el error.",
+                "hause": "ravenclaw"
+            } ,           
+            {
+                "option": "Le aviso antes de que lo eche en el caldero, al fin y al cabo yo me siento seguro/a con mi poción y no quiero fastidiar a los demás.",
+                "hause": "gryffindor"
+            } ,
+            {
+                "option": "Te ries mientras piensas 'que pringaó' y sigues a lo tuyo.",
+                "hause": "slytherin"
+            },
+            {
+                "option": "Le dices que lo está haciendo mal mientras le ofreces un ingrediente tuyo, al rato te das cuenta de que tu poción está peor y que realmente no le has ayudado.",
+                "hause": "hufflepuff"
+            },
+            {
+                "option": "Le felicitas por su poción, pues no ves diferencia con el resto.",
+                "hause": "muggle"
+            } 
+        ]
+    },
+    {
+        "question": "4- ¡Hoy toca excursión a Hogsmeade! Pero, se te ha olvidado traer la autorización... Ves que McGonagall va uno por uno pidiéndola... ¿Qué haces?",
+        "id": "3",
+        "res": [
+            {
+                "option": "Tiro un motón de cohetes y entre tanto caos aprovecho para escaparme. Ya les espero allí con una cerveza de mantequilla :)",
+                "hause": "gryffindor"
+            } ,
+            {
+                "option": "¡Ni de broma me quedo sin ir! Falsificaré una tan exacta que ni McGonagall notará la diferencia.",
+                "hause": "ravenclaw"
+            } ,
+            {
+                "option": "Te da exactamente lo mismo porque te has quedado dormido/a, demasiada juerga ayer...",
+                "hause": "muggle"
+            } ,
+            {
+                "option": "Le quito la autorización a otro/a y cambio el nombre, cero drama.",
+                "hause": "slytherin"
+            },
+            {
+                "option": "Estaría bien decir la verdad a ver si la profesora McGonagall tiene un poco de comprensión y me deja ir... (Te quedas cual pardillo/a en castillo).",
+                "hause": "hufflepuff"
+            }
+        ]
+    },
+    {
+        "question": "5- Estás en los exteriores del castillo y ves que hay tres alumnos de cuarto metiendose con uno de primero.",
+        "id": "4",
+        "res": [
+            {
+                "option": "Te acercas a ver si le conoces para echarle un cable.",
+                "hause": "hufflepuff"
+            },
+            {
+                "option": "Pasas del tema, al fin y al cabo es como una clase práctica de defensa contra las artes oscuras, le vendrá bien.",
+                "hause": "slytherin"
+            },
+            {
+                "option": "Es tu momento de lucirte, en el fondo te un poco igual la situación pero quieres demostrar a los demás quien manda. Aprovechas que todos miran y te enfrentas a ellos.",
+                "hause": "gryffindor"
+            } ,
+            {
+                "option": "¿Cómo admiten a gente así de inutil en Hogwarts? Esperas un rato, pero te da pena y acabas defendiendole.",
+                "hause": "ravenclaw"
+            } ,
+            {
+                "option": "Ni te das cuenta de la situación hasta que un hechizo mal lanzado choca contra tí y acabas inconscente en el suelo.",
+                "hause": "muggle"
+            } 
+        ]
+    },
+    {
+        "question": "6- Son los examenes del T.I.M.O. (Título Indispensable de Magia Ordinaria), la presión es muy alta. Ves una oportunidad de oro para copiar...",
+        "id": "5",
+        "res": [
+            {
+                "option": "Intentas copiar pero te pones nervioso y desistes.",
+                "hause": "hufflepuff"
+            },
+            {
+                "option": "No tengo necesidad, de todos modos voy a sacar mejor nota que el resto.",
+                "hause": "ravenclaw"
+            } ,
+
+            {
+                "option": "Copias y aún así suspendes, ahora entiendes porque se llaman T.I.M.O.",
+                "hause": "muggle"
+            },
+            {
+                "option": "Las oportunidades hay que aprovecharlas, obvio que copio.",
+                "hause": "gryffindor"
+            } ,
+
+            {
+                "option": "Llevo copiando todos los exámenes, no hay diferencia.",
+                "hause": "slytherin"
+            }
+        ]
+    },
+    {
+        "question": "7- Estas en la tienda de Ollivander. ¿Qué varita te escogería a tí?",
+        "id": "6",
+        "res": [
+            {
+                "option": "Madera de tejo y pluma de fénix.",
+                "hause": "hufflepuff"
+            },
+            {
+                "option": "Madera de sauco y cabello de Thestral",
+                "hause": "muggle"
+            },
+            {
+                "option": "Madera de vid y corazón de dragón.",
+                "hause": "gryffindor"
+            },
+            {
+                "option": "Madera de espino cuerno de basilisco",
+                "hause": "slytherin"
+            },
+            {
+                "option": "Madera de acebo y pelo de cola de unicornio.",
+                "hause": "ravenclaw"
+            }
+        ]
+    },
+        {
+        "question": "8- ¿Cuál es tu asignatura favorita?",
+        "id": "7",
+        "res": [
+            {
+                "option": "Pociones",
+                "hause": "slytherin"
+            },
+
+            {
+                "option": "Astronomía",
+                "hause": "muggle"
+            },
+            {
+                "option": "Encantamientos",
+                "hause": "ravenclaw"
+            },
+            {
+                "option": "Defensa Contra las Artes Oscuras",
+                "hause": "gryffindor"
+            },
+            {
+                "option": "Herbología",
+                "hause": "hufflepuff"
+            }
+        ]
+    },
+    {
+        "question": "9- Vas andando por los pasillos y te encuentras a un alumno de primero perdido.",
+        "id": "8",
+        "res": [
+            {
+                "option": "Le ayudas a encontrar su clase para que no llegue tarde.",
+                "hause": "gryffindor"
+            },
+
+            {
+                "option": "Le indicas mal a propósito para que llegue tarde a clase.",
+                "hause": "slytherin"
+            },
+            {
+                "option": "El que llega tarde a clase eres tú y no tienes tiempo para eso.",
+                "hause": "muggle"
+            },
+            {
+                "option": "Le ignoras para que aprenda a valerse por sí mismo.",
+                "hause": "ravenclaw"
+            },
+            {
+                "option": "Le acompañas a clase mientras le cuentas tu vida.",
+                "hause": "hufflepuff"
+            }
+        ]
+    },
+    {
+        "question": "10- Por fín son los mundiales de Quidditch. Tu y tus amigos estáis planificando el día para ver el gran partido en directo.",
+        "id": "9",
+        "res": [
+            {
+                "option": "Te encargas de organizar todo y asignar tareas a cada uno/a, llevas una lista de cosas por hacer.",
+                "hause": "ravenclaw"
+            },
+
+            {
+                "option": "Vas a la aventura y delegas la organización a otro/a, lo importante es disfrutar.",
+                "hause": "hufflepuff"
+            },
+            {
+                "option": "Acabas discutiendo si la gente no hace lo que tu dices. Es un día muy importante y quieres todo a tu gusto.",
+                "hause": "slytherin"
+            },
+            {
+                "option": "Prefieres que cada persona proponga lo que mas les guste y que se decida entre todos.",
+                "hause": "gryffindor"
+            },
+            {
+                "option": "¿Mundial de qué?",
+                "hause": "muggle"
+            }
+        ]
+    },
+    {
+        "question": "11- ¡Te persiguen los mortifagos! ¿Cómo te defiendes?",
+        "id": "10",
+        "res": [
+            {
+                "option": "Un expelliarmus y a hasta luego Mari Carmen. Me llevo una varita de gratis.",
+                "hause": "gryffindor"
+            },
+            {
+                "option": "¿Pero quiénes son estos cobardes disfrazados? ¡Que den la cara! Me lio a puñetazos a ver si a alguno le quito la máscara.",
+                "hause": "muggle"
+            },
+            {
+                "option": "Pruebas todos los hechizos de defensa aprendidos en clase, alguno hará efecto digo yo... sino menuda estafa de enseñanza.",
+                "hause": "ravenclaw"
+            },
+            {
+                "option": "Les lanzo todo lo que pille por el camino, incluida mi varita... ups.",
+                "hause": "hufflepuff"
+            },
+            {
+                "option": "Te escondes y esperas a que otro/a se enfrente a ellos. Si lo ves fácil intervienes. ¡Aquí quien no corre vuela!",
+                "hause": "slytherin"
+            }
+        ]
+    },
+    {
+        "question": "12- Se acerca El Baile de Navidad, una tradición del Torneo de los Tres Magos que se realiza en Navidad. ",
+        "id": "11",
+        "res": [
+            {
+                "option": "Pasas de tu pareja y te encargas de echar agua alegre a todas las bebidas hasta que te pilla Snape y te echa del baile. Después se la bebe él y el resto de profesores.",
+                "hause": "muggle"
+            },
+            {
+                "option": "Todo el mundo cree que no podrás asistir al baile puesto que no consigues pareja y todo el mundo te rechaza cuando se lo pides. Pero llegas al baile con la persona mas guapa de todo Hogwarts y les dejas a todos flipando.",
+                "hause": "hufflepuff"
+            },
+            {
+                "option": "Lo estás deseando, ya tienes la mejor túnica de gala de todas y tu pareja de baile. Llevas semanas planificándolo.",
+                "hause": "ravenclaw"
+            },
+            {
+                "option": "Odias estos acontecimientos, pero obviamente no te supone ningún problema ir con pareja. Puedes pedirselo a quien quieras que dirá que sí.",
+                "hause": "slytherin"
+            },
+            {
+                "option": "Se te olvida el baile y en el último momento le pides ir contigo a la primera persona que se te cruza, pero por suerte tu encanto natural hace que esto no te suponga ningún problema. Eso sí, tendrás que pensar como conseguir una túnica decente.",
+                "hause": "gryffindor"
+            }
+        ]
+    },
+    {
+        "question": "13- ¿Qué te gusta hacer en tus ratos libres en Hogwarts?",
+        "id": "12",
+        "res": [
+            {
+                "option": "Aprovecho para ir a la biblioteca y ponerme al día con las tareas o aprender algo nuevo.",
+                "hause": "ravenclaw"
+            },
+            {
+                "option": "Hacer botellón a las orillas del lago Negro.",
+                "hause": "hufflepuff"
+            },
+            {
+                "option": "Intentar colarme en el Bosque Prohibido o en la Sección Prohibida de la biblioteca o en algun lugar prohibido.",
+                "hause": "gryffindor"
+            },
+            {
+                "option": "Irme a la sala común a echarme una siestecita o marujear con alguien.",
+                "hause": "muggle"
+            },
+            {
+                "option": "Echar un ajedrez mágico y unos Quidditch con la peña.",
+                "hause": "slytherin"
+            }
+        ]
+    },
+    {
+        "question": "14- ¿Cuál crees que sería tu patronus?",
+        "id": "13",
+        "res": [
+            {
+                "option": "Un zorro.",
+                "hause": "slytherin"
+            },
+            {
+                "option": "Un dragón.",
+                "hause": "gryffindor"
+            },
+            {
+                "option": "Un oso.",
+                "hause": "hufflepuff"
+            },
+            {
+                "option": "Una vaca.",
+                "hause": "muggle"
+            },
+            {
+                "option": "Un delfín.",
+                "hause": "ravenclaw"
+            }
+        ]
+    },
+    {
+        "question": "15- ¿Qué Asignaturas Extracurriculares escogerías?",
+        "id": "14",
+        "res": [
+            {
+                "option": "Estudios Antiguos.",
+                "hause": "gryffindor"
+            },
+            {
+                "option": "Arte Muggle.",
+                "hause": "muggle"
+            },
+            {
+                "option": "Estudios de demonios necrófagos.",
+                "hause": "slytherin"
+            },
+            {
+                "option": "Teoría Mágica.",
+                "hause": "ravenclaw"
+            },
+            {
+                "option": "Magia terrestre.",
+                "hause": "hufflepuff"
+            }
+        ]
     }
     ]

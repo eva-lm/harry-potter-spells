@@ -3,8 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { yellow } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import a from "../images/a.png";
-//import FavoriteSpellList from "./FavoriteSpellList";
+
 
 const FavoriteButton = props => {
   const useStyles = makeStyles(theme => ({
@@ -16,11 +15,7 @@ const FavoriteButton = props => {
       paddingBottom: 30,
       borderTop: "0.8px solid #cfcfcf",
       borderBottom: "0.8px solid #cfcfcf",
-    //   backgroundColor: "#cfcfcf",
-    //  // backgroundImage: `url(${a})`,
-    //   backgroundRepeat: "no-repeat",
-    //   backgroundAttachment: "fixed",
-    //   backgroundSize: "cover"
+
     },
     button: {
       width: "250px",

@@ -14,7 +14,6 @@ import IconButton from "@material-ui/core/IconButton";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import Container from '@material-ui/core/Container';
 import jum from "../images/desaprobacion.png";
-import a from "../images/a.png";
 
 
 
@@ -52,10 +51,6 @@ function useStickyState(key) {
   const useStyles = makeStyles({
     content: {
       justifyContent: "center",
-      // backgroundImage: `url(${a})`,
-      // backgroundRepeat: "no-repeat",
-      // backgroundAttachment: "fixed",
-      // backgroundSize: "cover"
     },
     card: {
       width: 330,
@@ -131,7 +126,7 @@ function useStickyState(key) {
         : 
         (
           <Container className={classes.info} >
-            <p style={{ fontSize: "22px"}}>You don't have favorites yet ... Study the spells well!</p>
+            <p style={{ fontSize: "22px"}}>Todavía no tienes hechizos favoritos... ¡Estudia un poco!</p>
             <img className={classes.dobby} src={jum} alt="dobby" />
           </Container>
           )

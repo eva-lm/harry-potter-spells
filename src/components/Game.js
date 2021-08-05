@@ -18,8 +18,6 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormLabel from '@material-ui/core/FormLabel';
 import Button from '@material-ui/core/Button';
 import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
 import Collapse from "@material-ui/core/Collapse";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import IconButton from "@material-ui/core/IconButton";
@@ -44,7 +42,7 @@ const [loading, setLoading] = useState(false)
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: "130px",
+    marginTop: "95px",
   },
   formControl: {
     margin: theme.spacing(3),
@@ -89,7 +87,6 @@ const useStyles = makeStyles((theme) => ({
     })
   },
   wrap: {
-    backgroundColor: "#cfcfcf",
     display: "flex",
     flexDirection: "column",
     padding: 10,
@@ -99,7 +96,7 @@ const useStyles = makeStyles((theme) => ({
   },
   card: {
     width: "100%",
-    height: 480,
+    height: 500,
     marginTop: 10,
     padding: 10,
     display: "flex"
@@ -117,6 +114,7 @@ const handleExpandClick = () => {
 };
 const handleExpandClickSecond = () => {
   setExpandedSecond(!expandedSecond);
+  setExpanded(false);
 };
 const classes = useStyles();
 
@@ -259,8 +257,7 @@ return (
     <div style={{ padding: "10px" }}>
      {biggerNumber === gryffindor ?
           <Typography variant="body2" color="textPrimary" component="p">
-              Dicen que somos egocéntricos, pero la envidia es muy mala. Todo el mundo sabe que Gryffindor es la mejor casa y que por eso somos los favoritos. Puede que a veces nos guste llamar la atención pero es que solemos brillar más que el resto.
-              Un auténtico Gryffindor te va a defender y no te dejará tirado/a. Si tienes lo que hay que tener, esta es tu casa.
+              Dicen que somos egocéntricos, pero la envidia es muy mala. Todo el mundo sabe que Gryffindor es la mejor casa y que por eso somos los favoritos. Puede que a veces nos guste llamar la atención pero es que solemos brillar más que el resto. Un auténtico Gryffindor no te va a dejar tirado/a, asique si tienes lo que hay que tener... ¡Esta es tu casa!
           </Typography>
       : biggerNumber === slytherin ?
           <Typography variant="body2" color="textPrimary" component="p">
@@ -276,7 +273,7 @@ return (
       </Typography>  
       : biggerNumber === muggle ?
       <Typography variant="body2" color="textPrimary" component="p">
-            ¡No te desanimes! La mayoría de personas aún seguimos esperando la carta de Hogwarts. Mientras tanto mas te vale que estudies algo útil :)
+            ¡No te desanimes! La mayoría de personas aún seguimos esperando la carta de Hogwarts. Mientras tanto, mas te vale que estudies algo útil :)
       </Typography>       
           : "" }
     {biggerNumber !== muggle ? 
@@ -299,31 +296,78 @@ return (
           <div className={classes.wrap}>
             {biggerNumber === gryffindor ?
             <div>
-            <p>La Casa <strong>Gryffindor</strong> fue fundada por Godric Gryffindor. Sus principios son: <strong>valentía, disposición, coraje y caballerosidad</strong>, ya que éstas son las cualidades de un auténtico Gryffindor debe tener. 
-            - Sus colores representativos son el dorado y el escarlata.
-            - Su símbolo es un león. 
-            - Elemento: fuego.
-            La reliquia de esta casa es espada de Godric Gryffindor y su sala común se encuentra en la Torre  ubicada en el séptimo piso del Castillo de Hogwarts.</p>
+            <Typography variant="body2" component="p" color="textPrimary">La Casa <strong>Gryffindor</strong> fue fundada por Godric Gryffindor. Sus principios son: <strong>valentía, disposición, coraje y caballerosidad</strong>, ya que éstas son las cualidades de un auténtico Gryffindor debe tener. 
+            <ul style={{ listStyle: "none", padding: "0", margin: "8px 0"}}>
+              <li>
+              - Sus colores representativos son el dorado y el escarlata.
+              </li>
+              <li>
+              - El animal de esta casa es un león. 
+              </li>
+              <li>
+              - Elemento: fuego.
+              </li>
+            </ul>
+            </Typography>
+            <Typography variant="subtitle2" component="p" color="textPrimary"><em>La reliquia de esta casa es espada de Godric Gryffindor y su sala común se encuentra en la Torre  ubicada en el séptimo piso del Castillo de Hogwarts.</em></Typography>
             </div>
             : biggerNumber === slytherin ? 
             <div>
-              <p>La Casa <strong>Slytherin</strong>, fundada por el mago Salazar Slytherin y se caracteriza principalmente por la <strong>ambición y la astucia</strong>. 
+              <Typography variant="body2" component="p" color="textPrimary">La Casa <strong>Slytherin</strong>, fundada por el mago Salazar Slytherin, se caracteriza principalmente por la <strong>ambición y la astucia</strong>. 
+              <ul style={{ listStyle: "none", padding: "0", margin: "8px 0"}}>
+              <li>
               - Sus colores representativos son verde y plateado. 
+              </li>
+              <li>
               - El animal de esta casa es la serpiente.
-              - Su elemento es el agua.
-              La Sala Común se encuentra situada en las mazmorras, pasando por un serie de numerosos pasillos subterráneos. Se sitúa debajo del Lago Negro, es hace que su sala común sea fría y con un aire verdoso, ya que hay ventanas que dan a las aguas. Su principal reliquia es el guardapelo de Salazar Slytherin. </p>
+              </li>
+              <li>
+              - Elemento: agua.
+              </li>
+              </ul>
+              </Typography>
+              <Typography variant="subtitle2" component="p" color="textPrimary"><em>
+              La Sala Común se encuentra situada en las mazmorras, pasando por un serie de numerosos pasillos subterráneos. Se sitúa debajo del Lago Negro, es hace que su sala común sea fría y con un aire verdoso, ya que hay ventanas que dan a las aguas. Su principal reliquia es el guardapelo de Salazar Slytherin.</em></Typography>
             </div>
             : biggerNumber === ravenclaw ? 
             <div>
-              <p>La Casa <strong>Ravenclaw</strong> busca alumnos académicos, estudiosos y que siempre sepan lo que hay que hacer. Se rigen por la inteligencia y la creatividad. Fue fundada por la bruja, Rowena Ravenclaw, causante de que las escaleras del castillo se muevan.
-              Su sala común se encuentra en una torre en el ala oeste del castillo. En la entrada se encuentra una estatua con forma de águila hace dice acertijos y sólo te deja entrar si lo resuelves. 
+              <Typography variant="body2" component="p" color="textPrimary">La Casa <strong>Ravenclaw</strong> busca alumnos académicos, estudiosos y que siempre sepan lo que hay que hacer. Se rigen por la <strong>inteligencia y la creatividad</strong>. Fue fundada por Rowena Ravenclaw, causante de que las escaleras del castillo se muevan.
+              <ul style={{ listStyle: "none", padding: "0", margin: "8px 0"}}>
+              <li>
               - Sus colores representativos son el azul y el bronce. 
-              - El animal de esta casa es el águila, aunque en alguna versión del escudo es un cuervo.
-              Su principal reliquia es la diadema de Rowena Ravenclaw. </p>
+              </li>
+              <li>
+              - El animal de esta casa es el águila, aunque en alguna versión del escudo es un cuervo.         
+              </li>
+              <li>
+              - Elemento: aire.
+              </li>
+              </ul>
+              </Typography>
+              <Typography variant="subtitle2" component="p" color="textPrimary"><em>
+              Su sala común se encuentra en una torre en el ala oeste del castillo. En la entrada hay una estatua que dice acertijos y sólo te deja entrar si lo resuelves.
+              Su principal reliquia es la diadema de Rowena Ravenclaw.
+              </em></Typography>
             </div>
               : biggerNumber === hufflepuff ?
             <div>
-              <p>La Sala Común de Hufflepuff se encuentra en una bodega en el mismo pasillo subterráneo que la cocina. Inicialmente, Hufflepuff buscaba alumnos que simplemente quisieran pertenecer a esa casa, aunque actualmente busca alumnos leales, honestos y que no teman el trabajo pesado. La fundadora es nada menos que la bruja Helga Hufflepuff, amiga desde la infancia de Rowena Ravenclaw. Helga fue una bruja muy noble, amigable y la principal impulsora de que Hogwarts aceptase a alumnos nacidos de muggles. La principal reliquia de la casa es la copa de Helga Hufflepuff. El símbolo de la casa es un tejón negro y sus colores representativos son el amarillo y el negro carbón.</p>
+                <Typography variant="body2" component="p" color="textPrimary">La Casa <strong>Hufflepuff</strong>, busca alumnos leales, honestos y que no teman el trabajo pesado.
+                Fue fundada por Helga Hufflepuff una bruja muy noble, amigable y la principal impulsora de que Hogwarts aceptase a alumnos nacidos de muggles. 
+                <ul style={{ listStyle: "none", padding: "0", margin: "8px 0"}}>
+              <li>
+              - Sus colores representativos son el amarillo y el negro carbón.
+              </li>
+              <li>
+              - El animal de esta casa es un tejón negro.
+              </li>
+              <li>
+              - Elemento: tierra.
+              </li>
+                </ul>
+                </Typography>
+                <Typography variant="subtitle2" component="p" color="textPrimary"><em>
+                Su sala común de  se encuentra en una bodega en el mismo pasillo subterráneo que la cocina. La principal reliquia de la casa es la copa de Helga Hufflepuff. 
+                </em></Typography>
             </div>
             : biggerNumber === muggle ? 
             ""
@@ -346,11 +390,13 @@ return (
       </div>
       <Collapse in={expandedSecond} timeout="auto" unmountOnExit>
           <div className={classes.wrap}>
+          <Typography variant="subtitle2" component="p" color="textPrimary">
             <p>Gryffindor: {gryffindor}%</p>
             <p>Slytherin: {slytherin}%</p>
             <p>Ravenclaw: {ravenclaw}%</p>
             <p>Hufflepuff: {hufflepuff}%</p>
             <p>Muggle: {muggle}%</p>
+          </Typography>
           </div>
       </Collapse>
       </> : ""}

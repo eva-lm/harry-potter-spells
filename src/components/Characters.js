@@ -2,7 +2,6 @@ import React from "react";
 import getCharactersFromServer from "../services/dataCharacters";
 import CharacterList from "./CharacterList";
 import Spinner from "./Spinner";
-import { Link } from "react-router-dom";
 
 class Characters extends React.Component {
   constructor(props) {

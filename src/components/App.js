@@ -8,6 +8,7 @@ import { Game } from "./Game";
 import { LoginButton } from "./Login";
 import { LogoutButton } from "./Logout";
 import { Profile } from "./Profile";
+import Grid from "@material-ui/core/Grid";
 import "../stylesheets/App.css"
 import glassesImg from "../images/glasses-harry.png";
 import song from "../sound/song.mp3";
@@ -31,6 +32,7 @@ export const App = () => {
                 <LoginButton />
                 }
                     <nav>
+                    <Grid>
                     <Button variant="contained" style={{  margin: "20px", backgroundColor: "white", padding: "0" }}>
                         <Link to="/" style={{ textDecoration: "none", display: "flex", justifyContent: "center"}}>
                           <img src={glassesImg} alt="Home" height="40" />
@@ -45,6 +47,7 @@ export const App = () => {
                       <Button variant="contained" color="primary" style={{  margin: "20px" }}>
                         <Link to="/game" style={{ textDecoration: "none", color: "white" }}>Game</Link>
                       </Button>
+                      </Grid>
                     </nav>
                   </header>
 
