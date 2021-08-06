@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/harry-potter-spells/static/css/main.e0094519.chunk.css",
-    "main.js": "/harry-potter-spells/static/js/main.7e5ea89f.chunk.js",
-    "main.js.map": "/harry-potter-spells/static/js/main.7e5ea89f.chunk.js.map",
+    "main.css": "/harry-potter-spells/static/css/main.2332e7ee.chunk.css",
+    "main.js": "/harry-potter-spells/static/js/main.e01735a4.chunk.js",
+    "main.js.map": "/harry-potter-spells/static/js/main.e01735a4.chunk.js.map",
     "runtime-main.js": "/harry-potter-spells/static/js/runtime-main.316dca62.js",
     "runtime-main.js.map": "/harry-potter-spells/static/js/runtime-main.316dca62.js.map",
-    "static/js/2.94d504ca.chunk.js": "/harry-potter-spells/static/js/2.94d504ca.chunk.js",
-    "static/js/2.94d504ca.chunk.js.map": "/harry-potter-spells/static/js/2.94d504ca.chunk.js.map",
+    "static/js/2.37314a7d.chunk.js": "/harry-potter-spells/static/js/2.37314a7d.chunk.js",
+    "static/js/2.37314a7d.chunk.js.map": "/harry-potter-spells/static/js/2.37314a7d.chunk.js.map",
     "index.html": "/harry-potter-spells/index.html",
-    "precache-manifest.6709f9cd9295a27d45c2774f74d8fb05.js": "/harry-potter-spells/precache-manifest.6709f9cd9295a27d45c2774f74d8fb05.js",
+    "precache-manifest.197929e7f7edbec466bad3b072f4122e.js": "/harry-potter-spells/precache-manifest.197929e7f7edbec466bad3b072f4122e.js",
     "service-worker.js": "/harry-potter-spells/service-worker.js",
-    "static/css/main.e0094519.chunk.css.map": "/harry-potter-spells/static/css/main.e0094519.chunk.css.map",
-    "static/js/2.94d504ca.chunk.js.LICENSE": "/harry-potter-spells/static/js/2.94d504ca.chunk.js.LICENSE",
+    "static/css/main.2332e7ee.chunk.css.map": "/harry-potter-spells/static/css/main.2332e7ee.chunk.css.map",
+    "static/js/2.37314a7d.chunk.js.LICENSE": "/harry-potter-spells/static/js/2.37314a7d.chunk.js.LICENSE",
     "static/media/desaprobacion.png": "/harry-potter-spells/static/media/desaprobacion.f8c84d5d.png",
     "static/media/glasses-harry.png": "/harry-potter-spells/static/media/glasses-harry.34a2872b.png",
     "static/media/gryffindor.jpg": "/harry-potter-spells/static/media/gryffindor.b44a2e79.jpg",
-    "static/media/App.css": "/harry-potter-spells/static/media/harrypotter.13b4c5bf.gif",
+    "static/media/App.css": "/harry-potter-spells/static/media/mobile.94b672fa.png",
     "static/media/hufflepuff.jpg": "/harry-potter-spells/static/media/hufflepuff.01ed5de9.jpg",
     "static/media/muggle.jpg": "/harry-potter-spells/static/media/muggle.01aa5126.jpg",
     "static/media/ravenclaw.jpg": "/harry-potter-spells/static/media/ravenclaw.b3c72e98.jpg",
@@ -25,8 +25,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.316dca62.js",
-    "static/js/2.94d504ca.chunk.js",
-    "static/css/main.e0094519.chunk.css",
-    "static/js/main.7e5ea89f.chunk.js"
+    "static/js/2.37314a7d.chunk.js",
+    "static/css/main.2332e7ee.chunk.css",
+    "static/js/main.e01735a4.chunk.js"
   ]
 }
