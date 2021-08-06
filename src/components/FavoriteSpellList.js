@@ -77,8 +77,8 @@ function useStickyState(key) {
       maxWidth: 500,
     },    
     info: {
-      width: "60%",
-      padding: 20,
+      marginTop: 60,
+      padding: 40,
       textAlign: "center",
     }
   })
@@ -126,7 +126,7 @@ function useStickyState(key) {
         : 
         (
           <Container className={classes.info} >
-            <p style={{ fontSize: "22px"}}>Todavía no tienes hechizos favoritos... ¡Estudia un poco!</p>
+            <p style={{ fontSize: "22px", margin: "20px 0"}}>Todavía no tienes hechizos favoritos... ¡Estudia un poco!</p>
             <img className={classes.dobby} src={jum} alt="dobby" />
           </Container>
           )

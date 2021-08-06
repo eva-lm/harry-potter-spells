@@ -8,21 +8,68 @@ import { Game } from "./Game";
 import { LoginButton } from "./Login";
 import { LogoutButton } from "./Logout";
 import { Profile } from "./Profile";
-import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
+
+import Box from '@material-ui/core/Box';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+
 import "../stylesheets/App.css"
 import glassesImg from "../images/glasses-harry.png";
 import song from "../sound/song.mp3";
 
 export const App = () => { 
     const {isAuthenticated, user} = useAuth0();
+
+    const useStyles = makeStyles(theme => ({
+      bottomNav: {
+        position: "absolute", 
+        top: "0", 
+        width: "100%", 
+        height: "150px",  
+        display: "flex", 
+        alignItems: "center", 
+        justifyContent: "space-between",
+        backgroundColor: "transparent",
+        padding: "10px"
+      },
+      bottomNavAuthenticated : {
+        position: "absolute", 
+        top: "0", 
+        width: "100%", 
+        height: "150px",  
+        display: "flex", 
+        alignItems: "baseline", 
+        justifyContent: "space-between",
+        backgroundColor: "transparent",
+        padding: "10px"
+      },
+      boxContent: {
+        display: "flex", 
+        justifyContent: "space-between" 
+      },
+      link: {
+        textDecoration: "none", 
+        color: "white"
+      },
+      music: {
+        marginTop: "150px", 
+        marginLeft: "20px",
+      },
+      musicAuthenticated: {
+        marginTop: "280px", 
+        marginLeft: "20px",
+      }
+    }));
+    const classes = useStyles();
+  
     return (
         <main>
-                <header style={{ position: "absolute", top: "0", width: "100%", backgroundColor: "", height: "150px"}}>
+                <BottomNavigation className={isAuthenticated ? classes.bottomNavAuthenticated : classes.bottomNav }>
                       {isAuthenticated === true ?
                 <>
-                <div style={{ display: "flex", flexDirection: "column", width: "100px", margin: "10px", float: "right"}}>
-                <img style={{ borderRadius:"50%", width: "90%" }} src={user.picture} alt={user.name} />
-                  <Button variant="contained" style={{  margin: "10px",  backgroundColor:"#f9c400", float: "right"  }}>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "10px"}}>
+                <img style={{ borderRadius:"50%", width: "80%" }} src={user.picture} alt={user.name} />
+                  <Button className="btn-responsive" variant="contained" style={{  backgroundColor:"#f9c400" }}>
                   <Link to="/profile" style={{ textDecoration: "none", color: "black" }}>Profile</Link>
                   </Button>
                 <LogoutButton />
@@ -31,25 +78,23 @@ export const App = () => {
                 :
                 <LoginButton />
                 }
-                    <nav>
-                    <Grid>
-                    <Button variant="contained" style={{  margin: "20px", backgroundColor: "white", padding: "0" }}>
-                        <Link to="/" style={{ textDecoration: "none", display: "flex", justifyContent: "center"}}>
+                    <Box className={classes.boxContent}>
+                    <Button className="btn-responsive" variant="contained" style={{ backgroundColor: "white", padding: "0" }}>
+                        <Link to="/" style={{ display: "flex", justifyContent: "center" }} className={classes.link}>
                           <img src={glassesImg} alt="Home" height="40" />
                         </Link>
                       </Button>
-                      <Button variant="contained" color="primary" style={{  margin: "20px" }}>
-                        <Link to="/spells" style={{ textDecoration: "none", color: "white"}}>Spells</Link>
+                      <Button className="btn-responsive" variant="contained" color="primary">
+                        <Link to="/spells" className={classes.link}>Spells</Link>
                       </Button>
-                      <Button variant="contained" color="primary" style={{  margin: "20px" }}>
-                        <Link to="/characters" style={{ textDecoration: "none", color: "white" }}>Characters</Link>
+                      <Button  className="btn-responsive" variant="contained" color="primary">
+                        <Link to="/characters" className={classes.link}>Characters</Link>
                       </Button>
-                      <Button variant="contained" color="primary" style={{  margin: "20px" }}>
-                        <Link to="/game" style={{ textDecoration: "none", color: "white" }}>Game</Link>
+                      <Button  className="btn-responsive" variant="contained" color="primary">
+                        <Link to="/game" className={classes.link}>Game</Link>
                       </Button>
-                      </Grid>
-                    </nav>
-                  </header>
+                      </Box>
+                  </BottomNavigation>
 
           <Switch>
           <Route
@@ -58,7 +103,7 @@ export const App = () => {
             render={() => {
               return (
                 <div className="App"> 
-                          <audio controls style={{ marginTop: "150px", marginLeft: "20px"}} autoplay>
+                          <audio controls className={isAuthenticated ? classes.musicAuthenticated : classes.music}  autoplay>
                           <source src={song} type="audio/mp3" />
                           Tu navegador no soporta audio HTML5.
                           </audio>

@@ -22,6 +22,7 @@ import Collapse from "@material-ui/core/Collapse";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import IconButton from "@material-ui/core/IconButton";
 import quiz from "../components/quiz/quiz.json"
+import "../stylesheets/App.css"
 
 
 
@@ -42,7 +43,7 @@ const [loading, setLoading] = useState(false)
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: "95px",
+    marginTop: "150px",
   },
   formControl: {
     margin: theme.spacing(3),
@@ -65,13 +66,8 @@ const useStyles = makeStyles((theme) => ({
    backgroundColor: "transparent",
    width: "100%"
   },
-  hatContainer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
   question: {
-    width: "60%",
+    width: "90%",
     display: "flex",
     flexDirection: "column",
     alignItems: "center"
@@ -93,13 +89,6 @@ const useStyles = makeStyles((theme) => ({
   },
   expandOpen: {
     transform: "rotate(180deg)"
-  },
-  card: {
-    width: "100%",
-    height: 500,
-    marginTop: 10,
-    padding: 10,
-    display: "flex"
   },
   media: {
     objectFit: "contain",
@@ -172,9 +161,9 @@ return (
   <Box className={classes.root}>
   {goQuiz === false ?
   (
-  <Container className={classes.question}>
+  <Container>
   <Typography variant="h1" component="h2" color="primary" style={{ fontSize: "28px", marginTop: "30px", marginBottom: "30px", textAlign: "center", margin: "50px"}} variant="h2">¡Ceremonia de Selección!</Typography>
-  <Container className={classes.hatContainer}>
+  <div className="hatContainer" style={{ display: "flex", flexDirection: "column-reverse", padding: "50px"}}>
     <Button         
           tooltip="Go to quiz"
           variant="contained"
@@ -184,9 +173,9 @@ return (
       >
     <img className={classes.icon} src={sombreroImg} alt="sombrero seleccionador" />
     </Button>  
-    <Typography style={{ fontSize: "15px", margin: "50px" }} >Bienvenidos a <strong>La Ceremonia de Selección</strong>, el evento más importante del año donde podrás saber a qué casa de Hogwarts perteneces. Cuando estés listo/a pincha sobre el Sombrero Seleccionador. Su decisión se considera generalmente indiscutible, aunque también puede ser influenciada en parte por los deseos del usuario. Responde con total sinceridad :)
+    <Typography className="hatText" style={{ fontSize: "15px", padding: "25px 0px"}} >Bienvenidos a <strong>La Ceremonia de Selección</strong>, el evento más importante del año donde podrás saber a qué casa de Hogwarts perteneces. Cuando estés listo/a pincha sobre el Sombrero Seleccionador. Su decisión se considera generalmente indiscutible, aunque también puede ser influenciada en parte por los deseos del usuario. Responde con total sinceridad :)
   </Typography>
-  </Container>
+  </div>
   </Container>
   ) : ""}
 
@@ -219,7 +208,7 @@ return (
 }
 
 <Container className={hidden === true ? classes.hidden : classes.question}>
-<Typography style={{ fontSize: "20px", textAlign: "center", marginTop: "20px", marginBottom: "30px" }} variant="h2">El sombrero está decidiendo que... </Typography>
+<Typography style={{ fontSize: "18px", textAlign: "center", marginTop: "20px", marginBottom: "30px" }} variant="h2">El sombrero está decidiendo que... </Typography>
   {loading ?
   (
     <>
@@ -244,7 +233,8 @@ return (
     Eres un <span style={{ color: "black" }}><strong>MUGGLE</strong></span>!!
     </Typography> :  ""}
 
-  <Card className={classes.card}>
+  <Card style={{ width: "100%", marginTop: 10, padding: 10,
+    display: "flex", flexDirection: "column", alignItems: "center"}} className="card">
     <div style={{ width: "70%", display: "flex", alignItems: "center", justifyContent: "center" }}>
   <img
     className={classes.media}

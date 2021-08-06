@@ -1,12 +1,51 @@
 .App {
     height: 100vh;
-    background-image: url("../images/gif/harrypotter.gif");
+    background-image: url("../images/mobile.png");
     background-repeat: no-repeat;
     background-position: center;
     padding: 0;
     margin: 0;
+    background-color: #1f1f22;
 }
 * {
 box-sizing: border-box;
 margin: 0;
+}
+
+/* html {
+    overflow-y: hidden;
+} */
+
+/* @media all and (max-width: 1024px) and (min-width: 640px) {
+} */
+@media all and (min-width: 640px) {
+    .btn-responsive {
+        margin: 20px !important;
+    }
+}
+@media all and (min-width: 900px) {
+    .App {
+        background-image: url("../images/gif/harrypotter.gif");
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .hatContainer {
+        flex-direction: row !important;
+    }
+    .hatText {
+        margin-left: 50px !important;
+    }
+    .card {
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        height: 50vh !important;
+    }
+}
+
+@media all and (min-width: 2000px) {
+    .App {
+        background-image: url("../images/heroMax.png");
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 }
