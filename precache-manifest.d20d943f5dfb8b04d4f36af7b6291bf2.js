@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e5025f1189f5d81246ba4d75050b05dc",
+    "revision": "68259a0b14f52815c4e9c9973400b7ea",
     "url": "/harry-potter-spells/index.html"
   },
   {
