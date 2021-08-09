@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/harry-potter-spells/static/css/main.2332e7ee.chunk.css",
-    "main.js": "/harry-potter-spells/static/js/main.e01735a4.chunk.js",
-    "main.js.map": "/harry-potter-spells/static/js/main.e01735a4.chunk.js.map",
-    "runtime-main.js": "/harry-potter-spells/static/js/runtime-main.316dca62.js",
-    "runtime-main.js.map": "/harry-potter-spells/static/js/runtime-main.316dca62.js.map",
-    "static/js/2.37314a7d.chunk.js": "/harry-potter-spells/static/js/2.37314a7d.chunk.js",
-    "static/js/2.37314a7d.chunk.js.map": "/harry-potter-spells/static/js/2.37314a7d.chunk.js.map",
+    "main.js": "/harry-potter-spells/static/js/main.d376a83e.chunk.js",
+    "main.js.map": "/harry-potter-spells/static/js/main.d376a83e.chunk.js.map",
+    "runtime-main.js": "/harry-potter-spells/static/js/runtime-main.992735e5.js",
+    "runtime-main.js.map": "/harry-potter-spells/static/js/runtime-main.992735e5.js.map",
+    "static/js/2.29d32cb7.chunk.js": "/harry-potter-spells/static/js/2.29d32cb7.chunk.js",
+    "static/js/2.29d32cb7.chunk.js.map": "/harry-potter-spells/static/js/2.29d32cb7.chunk.js.map",
     "index.html": "/harry-potter-spells/index.html",
-    "precache-manifest.d20d943f5dfb8b04d4f36af7b6291bf2.js": "/harry-potter-spells/precache-manifest.d20d943f5dfb8b04d4f36af7b6291bf2.js",
+    "precache-manifest.6866e8b783125bea532af7a753a54163.js": "/harry-potter-spells/precache-manifest.6866e8b783125bea532af7a753a54163.js",
     "service-worker.js": "/harry-potter-spells/service-worker.js",
     "static/css/main.2332e7ee.chunk.css.map": "/harry-potter-spells/static/css/main.2332e7ee.chunk.css.map",
-    "static/js/2.37314a7d.chunk.js.LICENSE": "/harry-potter-spells/static/js/2.37314a7d.chunk.js.LICENSE",
+    "static/js/2.29d32cb7.chunk.js.LICENSE": "/harry-potter-spells/static/js/2.29d32cb7.chunk.js.LICENSE",
     "static/media/desaprobacion.png": "/harry-potter-spells/static/media/desaprobacion.f8c84d5d.png",
     "static/media/glasses-harry.png": "/harry-potter-spells/static/media/glasses-harry.34a2872b.png",
     "static/media/gryffindor.jpg": "/harry-potter-spells/static/media/gryffindor.b44a2e79.jpg",
@@ -24,9 +24,9 @@
     "static/media/song.mp3": "/harry-potter-spells/static/media/song.df8a084e.mp3"
   },
   "entrypoints": [
-    "static/js/runtime-main.316dca62.js",
-    "static/js/2.37314a7d.chunk.js",
+    "static/js/runtime-main.992735e5.js",
+    "static/js/2.29d32cb7.chunk.js",
     "static/css/main.2332e7ee.chunk.css",
-    "static/js/main.e01735a4.chunk.js"
+    "static/js/main.d376a83e.chunk.js"
   ]
 }
