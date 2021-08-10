@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d391fa40c0c74075786e55f4dc049022",
+    "revision": "79b6cc5ddc4057e72c6118703c3606a8",
     "url": "/harry-potter-spells/index.html"
   },
   {
-    "revision": "e2b399207e58913bbc66",
+    "revision": "66d156c3755152febbcc",
     "url": "/harry-potter-spells/static/css/main.2332e7ee.chunk.css"
   },
   {
-    "revision": "70880e58d4bdaa67a606",
-    "url": "/harry-potter-spells/static/js/2.29d32cb7.chunk.js"
+    "revision": "fdaaeab4c7f007663b9f",
+    "url": "/harry-potter-spells/static/js/2.fc13569c.chunk.js"
   },
   {
-    "revision": "34e08232f7e793d10d146b598e6a9958",
-    "url": "/harry-potter-spells/static/js/2.29d32cb7.chunk.js.LICENSE"
+    "revision": "c00c898ec5163e4869e0f4cf6c2096d6",
+    "url": "/harry-potter-spells/static/js/2.fc13569c.chunk.js.LICENSE"
   },
   {
-    "revision": "e2b399207e58913bbc66",
-    "url": "/harry-potter-spells/static/js/main.d376a83e.chunk.js"
+    "revision": "66d156c3755152febbcc",
+    "url": "/harry-potter-spells/static/js/main.2d81c6dc.chunk.js"
   },
   {
-    "revision": "9617da766907f1c71f29",
-    "url": "/harry-potter-spells/static/js/runtime-main.992735e5.js"
+    "revision": "cf0993789791336b3cfa",
+    "url": "/harry-potter-spells/static/js/runtime-main.9484636d.js"
   },
   {
     "revision": "f8c84d5dba0bd6430e123b657ff39091",
