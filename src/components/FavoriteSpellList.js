@@ -74,11 +74,11 @@ function useStickyState(key) {
       width: "85%",
     },
     dobby: {
-      maxWidth: 500,
+      maxWidth: "80%",
       margin: "20px 0"
     },    
     info: {
-      marginTop: 60,
+      marginTop: 30,
       padding: 40,
       display: "flex",
       flexDirection: "column",
@@ -89,7 +89,7 @@ function useStickyState(key) {
 
   
   return (
-    <Box style={{ with: "100%", margin: "30px", marginTop: "150px" }}>
+    <Box style={{ with: "100%", margin: "30px 30px 60px 30px" }}>
        <div>
          {favorites.length >= 1 ?
         (

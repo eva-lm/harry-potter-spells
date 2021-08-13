@@ -15,7 +15,7 @@ const SpellList = props => {
   const classes = useStyles();
 
   return (
-    <Box style={{ with: "100%", margin: "30px" }}>
+    <Box style={{ with: "100%", margin: "30px, 30px, 60px 30px" }}>
       <Grid container className={classes.content}>
         {spells.map((spell, index) => {
           return (

@@ -59,7 +59,7 @@ export const Spells = () => {
     setSpells(newSpells)
   }
     return (
-      <div>
+      <div style={{ marginBottom: "60px"}}>
         <CssBaseline />
       <Switch>
       <Route
@@ -67,7 +67,7 @@ export const Spells = () => {
       render={
       () => {
       return (
-      <Box style={{ marginTop: "200px"}}>
+      <Box>
         <Typography style={{ fontSize: "28px", textAlign: "center", marginTop: "30px", marginBottom: "30px" }} variant="h2" color="primary">
           Lista de hechizos
         </Typography>

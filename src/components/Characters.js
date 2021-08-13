@@ -71,7 +71,7 @@ class Characters extends React.Component {
     console.log("CHARACTER STATE1", this.state.partTwo);
 
     return (
-      <div style={{ marginTop: "150px"}}>
+      <div style={{ marginTop: "0px, 0, 0, 60px"}}>
         <Typography style={{ fontSize: "28px", textAlign: "center", marginTop: "30px", marginBottom: "30px" }} variant="h2" color="primary">
           Personajes de las pelis
         </Typography>

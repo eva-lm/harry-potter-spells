@@ -22,35 +22,28 @@ export const App = () => {
     const {isAuthenticated, user} = useAuth0();
 
     const useStyles = makeStyles(theme => ({
+      root: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+      },
       bottomNav: {
-        position: "absolute", 
-        top: "0", 
+        zIndex: 1,
+        backgroundColor: "transparent",
         width: "100%", 
-        height: "150px",  
+        height: "auto",  
         display: "flex", 
         flexDirection: "row-reverse",
         flexWrap: "wrap",
         alignItems: "center", 
         justifyContent: "space-between",
-        backgroundColor: "transparent",
-        padding: "10px"
+        padding: "10px",
+        marginTop: 10
       },
-      // bottomNavAuthenticated : {
-      //   position: "absolute", 
-      //   top: "0", 
-      //   width: "100%", 
-      //   height: "150px",  
-      //   display: "flex", 
-      //   flexDirection: "row-reverse",
-      //   flexWrap: "wrap",
-      //   alignItems: "center", 
-      //   justifyContent: "space-between",
-      //   backgroundColor: "transparent",
-      //   padding: "10px"
-      // },
       boxContent: {
         display: "flex", 
-        justifyContent: "flex-end" 
+        justifyContent: "flex-end",
+        flexWrap: "wrap",
       },
       profileContent: {
         display: "flex", 
@@ -79,7 +72,7 @@ export const App = () => {
     const classes = useStyles();
   
     return (
-        <main>
+        <main className={classes.root}>
                 <BottomNavigation className={classes.bottomNav}>
                       {isAuthenticated === true ?
                 <>

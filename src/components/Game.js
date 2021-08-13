@@ -43,7 +43,7 @@ const [loading, setLoading] = useState(false)
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: "150px",
+    marginBottom: "60px",
   },
   formControl: {
     margin: theme.spacing(3),
@@ -67,10 +67,11 @@ const useStyles = makeStyles((theme) => ({
    width: "100%"
   },
   question: {
-    width: "90%",
+    width: "95%",
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
+    marginBottom: 60
   },
   icon : {
     width: "200px"
