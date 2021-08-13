@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "792ddeab982eb257ba90e05ee32c86f1",
+    "revision": "9292e2174f43087d6beb1e9d82b4b49a",
     "url": "/harry-potter-spells/index.html"
   },
   {
-    "revision": "155ee47bf65929e0a7a3",
-    "url": "/harry-potter-spells/static/css/main.9722709d.chunk.css"
+    "revision": "816f7dcb3247610ee706",
+    "url": "/harry-potter-spells/static/css/main.335944ac.chunk.css"
   },
   {
     "revision": "e7a84fe2fce8c13f7e39",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/harry-potter-spells/static/js/2.3fa2f027.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "155ee47bf65929e0a7a3",
-    "url": "/harry-potter-spells/static/js/main.daaacc8d.chunk.js"
+    "revision": "816f7dcb3247610ee706",
+    "url": "/harry-potter-spells/static/js/main.0786142c.chunk.js"
   },
   {
     "revision": "cf0993789791336b3cfa",
@@ -48,8 +48,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/harry-potter-spells/static/media/hufflepuff.01ed5de9.jpg"
   },
   {
-    "revision": "94b672fae0514f115593a6d26fa9b7a4",
-    "url": "/harry-potter-spells/static/media/mobile.94b672fa.png"
+    "revision": "70acd6ae36328063fac309133acd4e46",
+    "url": "/harry-potter-spells/static/media/mobile.70acd6ae.png"
   },
   {
     "revision": "01aa512655fcedf39d04cc3e26ee8bab",
