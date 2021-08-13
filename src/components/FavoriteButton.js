@@ -39,7 +39,7 @@ const FavoriteButton = props => {
         className={classes.button}
       >
         <FavoriteIcon className={classes.icon} />
-        favorites
+        favoritos
       </Button>
     </div>
   );

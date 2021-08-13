@@ -8,6 +8,7 @@ import { Game } from "./Game";
 import { LoginButton } from "./Login";
 import { LogoutButton } from "./Logout";
 import { Profile } from "./Profile";
+import { Footer } from "./footer";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Box from '@material-ui/core/Box';
@@ -27,25 +28,40 @@ export const App = () => {
         width: "100%", 
         height: "150px",  
         display: "flex", 
+        flexDirection: "row-reverse",
+        flexWrap: "wrap",
         alignItems: "center", 
         justifyContent: "space-between",
         backgroundColor: "transparent",
         padding: "10px"
       },
-      bottomNavAuthenticated : {
-        position: "absolute", 
-        top: "0", 
-        width: "100%", 
-        height: "150px",  
-        display: "flex", 
-        alignItems: "baseline", 
-        justifyContent: "space-between",
-        backgroundColor: "transparent",
-        padding: "10px"
-      },
+      // bottomNavAuthenticated : {
+      //   position: "absolute", 
+      //   top: "0", 
+      //   width: "100%", 
+      //   height: "150px",  
+      //   display: "flex", 
+      //   flexDirection: "row-reverse",
+      //   flexWrap: "wrap",
+      //   alignItems: "center", 
+      //   justifyContent: "space-between",
+      //   backgroundColor: "transparent",
+      //   padding: "10px"
+      // },
       boxContent: {
         display: "flex", 
-        justifyContent: "space-between" 
+        justifyContent: "flex-end" 
+      },
+      profileContent: {
+        display: "flex", 
+        flexDirection: "column", 
+        alignItems: "center",
+        marginTop: "10px",
+        marginBottom: "20px"
+      },
+      logginContent: {
+        display: "flex", 
+        flexDirection: "column", 
       },
       link: {
         textDecoration: "none", 
@@ -64,10 +80,10 @@ export const App = () => {
   
     return (
         <main>
-                <BottomNavigation className={isAuthenticated ? classes.bottomNavAuthenticated : classes.bottomNav }>
+                <BottomNavigation className={classes.bottomNav}>
                       {isAuthenticated === true ?
                 <>
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "10px"}}>
+                <div className={ isAuthenticated ? classes.profileContent : classes.logginContent}>
                 <img style={{ borderRadius:"50%", width: "80%" }} src={user.picture} alt={user.name} />
                   <Button className="btn-responsive" variant="contained" style={{  backgroundColor:"#f9c400" }}>
                   <Link to="/profile" style={{ textDecoration: "none", color: "black" }}>Profile</Link>
@@ -85,17 +101,17 @@ export const App = () => {
                         </Link>
                       </Button>
                       <Button className="btn-responsive" variant="contained" color="primary">
-                        <Link to="/spells" className={classes.link}>Spells</Link>
+                        <Link to="/spells" className={classes.link}>Hechizos</Link>
                       </Button>
                       <Button  className="btn-responsive" variant="contained" color="primary">
-                        <Link to="/characters" className={classes.link}>Characters</Link>
+                        <Link to="/characters" className={classes.link}>Personajes</Link>
                       </Button>
                       <Button  className="btn-responsive" variant="contained" color="primary">
-                        <Link to="/game" className={classes.link}>Game</Link>
+                        <Link to="/game" className={classes.link}>Casas</Link>
                       </Button>
                       </Box>
                   </BottomNavigation>
-
+                <Footer />
           <Switch>
           <Route
             exact

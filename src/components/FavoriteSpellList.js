@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
-import { red, yellow } from "@material-ui/core/colors";
+import { red } from "@material-ui/core/colors";
 import spellBook from "../images/spell.png";
 import Box from '@material-ui/core/Box';
 import Grid from "@material-ui/core/Grid";
@@ -75,11 +75,14 @@ function useStickyState(key) {
     },
     dobby: {
       maxWidth: 500,
+      margin: "20px 0"
     },    
     info: {
       marginTop: 60,
       padding: 40,
-      textAlign: "center",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center"
     }
   })
   const classes = useStyles();
@@ -92,7 +95,7 @@ function useStickyState(key) {
         (
           <Box className={classes.content}>
           <Typography className={classes.title} variant="h2" color="primary">
-          My favorite spells
+          Mis hechizos favoritos
           </Typography>
           <Grid container className={classes.content}>
           {favorites.map((item, index) => {
@@ -126,7 +129,9 @@ function useStickyState(key) {
         : 
         (
           <Container className={classes.info} >
-            <p style={{ fontSize: "22px", margin: "20px 0"}}>Todavía no tienes hechizos favoritos... ¡Estudia un poco!</p>
+            <Typography className={classes.text} variant="body2" component="p">
+              Todavía no tienes hechizos favoritos... ¡Estudia un poco!
+            </Typography>
             <img className={classes.dobby} src={jum} alt="dobby" />
           </Container>
           )

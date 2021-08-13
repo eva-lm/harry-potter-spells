@@ -23,7 +23,8 @@ const Filters = props => {
       margin: theme.spacing(1)
     },
     label: {
-      position: "relative"
+      position: "relative",
+      marginLeft: 40
     }
   }));
   const classes = useStyles();
@@ -32,14 +33,14 @@ const Filters = props => {
     <div>
       <FormControl className={(classes.margin, classes.root)}>
         <InputLabel className={classes.label} htmlFor="spells">
-          Spell Finder
+          Buscador de hechizos
         </InputLabel>
         <Input
           value={search}
           onChange={handleSearchSpell}
           type="text"
           id="spells"
-          placeholder="Write here your spell..."
+          placeholder="Escribe tu hechizo aquí..."
           startAdornment={
             <InputAdornment position="start">
               <SearchIcon />

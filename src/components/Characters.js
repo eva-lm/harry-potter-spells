@@ -2,6 +2,8 @@ import React from "react";
 import getCharactersFromServer from "../services/dataCharacters";
 import CharacterList from "./CharacterList";
 import Spinner from "./Spinner";
+import Typography from "@material-ui/core/Typography";
+
 
 class Characters extends React.Component {
   constructor(props) {
@@ -70,6 +72,9 @@ class Characters extends React.Component {
 
     return (
       <div style={{ marginTop: "150px"}}>
+        <Typography style={{ fontSize: "28px", textAlign: "center", marginTop: "30px", marginBottom: "30px" }} variant="h2" color="primary">
+          Personajes de las pelis
+        </Typography>
         {this.state.characters.length <= 0 && <Spinner />}
         <CharacterList
           characters={characters}

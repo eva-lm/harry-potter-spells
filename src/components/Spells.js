@@ -69,7 +69,7 @@ export const Spells = () => {
       return (
       <Box style={{ marginTop: "200px"}}>
         <Typography style={{ fontSize: "28px", textAlign: "center", marginTop: "30px", marginBottom: "30px" }} variant="h2" color="primary">
-          Spells List
+          Lista de hechizos
         </Typography>
         <Link to="/spells/favorites" style={{ textDecoration: "none" }}>
           <FavoriteButton />
