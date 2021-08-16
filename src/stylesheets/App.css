@@ -29,7 +29,8 @@ margin: 0;
 }
 @media all and (min-width: 900px) {
     .App {
-        background-image: url("../images/gif/harrypotter.gif");
+        /* background-image: url("../images/gif/harrypotter.gif"); */
+        background-image: url("../images/pc.png");
         background-repeat: no-repeat;
         background-position: center;
     }
@@ -48,7 +49,7 @@ margin: 0;
 
 @media all and (min-width: 2000px) {
     .App {
-        background-image: url("../images/heroMax.png");
+        background-image: url("../images/pc.png");
         background-repeat: no-repeat;
         background-position: center;
     }
