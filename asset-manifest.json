@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/harry-potter-spells/static/css/main.8e8f5438.chunk.css",
+    "main.css": "/harry-potter-spells/static/css/main.2e61e592.chunk.css",
     "main.js": "/harry-potter-spells/static/js/main.0786142c.chunk.js",
     "main.js.map": "/harry-potter-spells/static/js/main.0786142c.chunk.js.map",
     "runtime-main.js": "/harry-potter-spells/static/js/runtime-main.9484636d.js",
@@ -8,15 +8,15 @@
     "static/js/2.3fa2f027.chunk.js": "/harry-potter-spells/static/js/2.3fa2f027.chunk.js",
     "static/js/2.3fa2f027.chunk.js.map": "/harry-potter-spells/static/js/2.3fa2f027.chunk.js.map",
     "index.html": "/harry-potter-spells/index.html",
-    "precache-manifest.2af64b2f97dbefe0499a87ad7bc4cc0d.js": "/harry-potter-spells/precache-manifest.2af64b2f97dbefe0499a87ad7bc4cc0d.js",
+    "precache-manifest.1d61b33eabe40da0cc9578a9e11f56bf.js": "/harry-potter-spells/precache-manifest.1d61b33eabe40da0cc9578a9e11f56bf.js",
     "service-worker.js": "/harry-potter-spells/service-worker.js",
-    "static/css/main.8e8f5438.chunk.css.map": "/harry-potter-spells/static/css/main.8e8f5438.chunk.css.map",
+    "static/css/main.2e61e592.chunk.css.map": "/harry-potter-spells/static/css/main.2e61e592.chunk.css.map",
     "static/js/2.3fa2f027.chunk.js.LICENSE.txt": "/harry-potter-spells/static/js/2.3fa2f027.chunk.js.LICENSE.txt",
     "static/media/desaprobacion.png": "/harry-potter-spells/static/media/desaprobacion.f8c84d5d.png",
     "static/media/glasses-harry.png": "/harry-potter-spells/static/media/glasses-harry.34a2872b.png",
     "static/media/gryffindor.jpg": "/harry-potter-spells/static/media/gryffindor.b44a2e79.jpg",
     "static/media/hufflepuff.jpg": "/harry-potter-spells/static/media/hufflepuff.01ed5de9.jpg",
-    "static/media/App.css": "/harry-potter-spells/static/media/pc.17140dd2.png",
+    "static/media/App.css": "/harry-potter-spells/static/media/pc.633b17cb.png",
     "static/media/muggle.jpg": "/harry-potter-spells/static/media/muggle.01aa5126.jpg",
     "static/media/ravenclaw.jpg": "/harry-potter-spells/static/media/ravenclaw.b3c72e98.jpg",
     "static/media/slytherin.jpg": "/harry-potter-spells/static/media/slytherin.8231d486.jpg",
@@ -26,7 +26,7 @@
   "entrypoints": [
     "static/js/runtime-main.9484636d.js",
     "static/js/2.3fa2f027.chunk.js",
-    "static/css/main.8e8f5438.chunk.css",
+    "static/css/main.2e61e592.chunk.css",
     "static/js/main.0786142c.chunk.js"
   ]
 }
